@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecitersTable extends Migration
+class CreateSuraRecitersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateRecitersTable extends Migration
      */
     public function up()
     {
-        Schema::create('reciters', function (Blueprint $table) {
+        Schema::create('sura_reciters', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('info');
-            $table->string('style', 20);
-            $table->string('image', 30);
+            $table->foreignId('reciter_id')->constrained('reciters');
+            $table->foreignId('sura_id')->constrained('suras');
+            $table->string('audio', 30);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateRecitersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reciters');
+        Schema::dropIfExists('surahs');
     }
 }

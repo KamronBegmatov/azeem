@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//  ONLY ADMINS
+Route::prefix('admin')->group(function () {
+    Route::resource('languages',     'Admin\LanguageController');
+    Route::resource('reciters',      'Admin\ReciterController');
+    Route::resource('sura_reciters','Admin\SuraReciterController');
+});
+
+Route::prefix('front')->group(function () {
+    Route::get('sura_langs','Front\SuraLangController@index'); // API for 5-6 pages
+    Route::get('sura_langs/{sura}','Front\SuraLangController@show'); // API for 7-page
 });

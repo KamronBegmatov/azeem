@@ -26,13 +26,18 @@ class ReciterController extends Controller
         $request->validate([
             'name' => 'required',
             'info' => 'required',
+            'style' => 'required',
             'image' => 'required|file',
         ]);
-        $image = Intervention::make($request->image)->resize(500, 500);
+        $image = Intervention::make($request->image);
+        if (!file_exists('storage/reciters/')) {
+            mkdir('storage/reciters/', 0777, true);
+        }
         $image->save(public_path('storage/reciters/' . $image->filename . '.webp'));
         $reciter = Reciter::create([
             'name' => $request->name,
             'info' => $request->info,
+            'style' => $request->style,
             'image' => 'reciters/' . $image->filename . '.webp',
         ]);
         return new ReciterResource($reciter);
@@ -48,12 +53,13 @@ class ReciterController extends Controller
         if ($request->has('image')) {
             $image = $reciter->image;
             Storage::disk('public')->delete($image);
-            $image_new = Intervention::make($request->image)->resize(500, 500);
+            $image_new = Intervention::make($request->image);
             $image_new->save(public_path('storage/reciters/'.$image_new->filename.'.webp'));
         }
         $reciter->update([
             'name' => $request->name,
             'info' => $request->info,
+            'style' => $request->style,
             'image' => 'reciters/'.$image_new->filename.'.webp',
         ]);
         return new ReciterResource($reciter);
