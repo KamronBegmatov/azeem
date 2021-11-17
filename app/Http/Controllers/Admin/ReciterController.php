@@ -50,18 +50,25 @@ class ReciterController extends Controller
 
     public function update(Request $request, Reciter $reciter)
     {
-        if ($request->has('image')) {
-            $image = $reciter->image;
-            Storage::disk('public')->delete($image);
-            $image_new = Intervention::make($request->image);
-            $image_new->save(public_path('storage/reciters/'.$image_new->filename.'.webp'));
-        }
-        $reciter->update([
-            'name' => $request->name,
-            'info' => $request->info,
-            'style' => $request->style,
-            'image' => 'reciters/'.$image_new->filename.'.webp',
+        $request->validate([
+            'image' => 'file',
         ]);
+        if ($request->has('name')) {
+            $reciter->name = $request->name;
+        }
+        if ($request->has('info')) {
+            $reciter->info = $request->info;
+        }
+        if ($request->has('style')) {
+            $reciter->style = $request->style;
+        }
+        if ($request->has('image')) {
+            Storage::disk('public')->delete($reciter->image);
+            $image = Intervention::make($request->image);
+            $image->save(public_path('storage/reciters/'.$image->filename.'.webp'));
+            $reciter->image = 'reciters/'.$image->filename.'.webp';
+        }
+        $reciter->save();
         return new ReciterResource($reciter);
     }
 

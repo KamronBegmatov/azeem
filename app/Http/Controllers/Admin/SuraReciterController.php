@@ -44,14 +44,23 @@ class SuraReciterController extends Controller
 
     public function update(Request $request, SuraReciter $sura_reciter)
     {
+        $request->validate([
+            'reciter_id' => 'exists:reciters,id',
+            'sura_id' => 'exists:suras,sura',
+            'audio' => 'file',
+        ]);
         if ($request->has('audio')) {
             Storage::disk('public')->putFileAs('audios/' . $request->reciter_id . '/', $request->file('audio'), $request->sura_id . '.mp3');
         }
-        $sura_reciter->update([
-            'reciter_id' => $request->reciter_id,
-            'sura_id' => $request->sura_id,
-        ]);
+        if ($request->has('reciter_id')) {
+            $sura_reciter->reciter_id = $request->reciter_id;
+        }
+        if ($request->has('sura_id')) {
+            $sura_reciter->sura_id = $request->sura_id;
+        }
+        $sura_reciter->save();
         return new SuraReciterResource($sura_reciter);
+
     }
 
     public function destroy(SuraReciter $sura_reciter)

@@ -43,12 +43,23 @@ class LanguageController extends Controller
 
     public function update(Request $request, Language $language)
     {
-        $language->update([
-            'name' => $request->name,
-            'active' => $request->active,
-            'iso_code' => $request->iso_code,
-            'language_code' => $request->language_code,
-            ]);
+        $request->validate([
+            'active' => 'boolean',
+            'iso_code' => 'unique',
+        ]);
+        if ($request->has('name')) {
+            $language->name = $request->name;
+        }
+        if ($request->has('active')) {
+            $language->active = $request->active;
+        }
+        if ($request->has('iso_code')) {
+            $language->iso_code = $request->iso_code;
+        }
+        if ($request->has('language_code')) {
+            $language->language_code = $request->language_code;
+        }
+        $language->save();
         return new LanguageResource($language);
     }
 
