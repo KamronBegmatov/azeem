@@ -14,6 +14,19 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter query()
  * @mixin \Eloquent
+ * @property int $id
+ * @property int $reciter_id
+ * @property int $sura_id
+ * @property string $audio
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Sura $sura
+ * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter whereAudio($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter whereReciterId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter whereSuraId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SuraReciter whereUpdatedAt($value)
  */
 class SuraReciter extends Model
 {

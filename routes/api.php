@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//  AUTH
+Route::post('register',      'AuthController@register');
+Route::prefix('auth')->group(function () {
+    Route::post('login',      'AuthController@login')->name('login');
+    Route::post('logout',     'AuthController@logout');
+    Route::post('refresh',    'AuthController@refresh');
+    Route::get('me',          'AuthController@me');
+});
 //  ONLY ADMINS
 Route::prefix('admin')->group(function () {
     Route::resource('languages',     'Admin\LanguageController');

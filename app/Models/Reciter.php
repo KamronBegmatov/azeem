@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Reciter whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reciter whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $style
+ * @method static \Illuminate\Database\Eloquent\Builder|Reciter whereStyle($value)
  */
 class Reciter extends Model
 {
