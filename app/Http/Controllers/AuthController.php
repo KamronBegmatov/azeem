@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\JWT;
+use Tymon\JWTAuth\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -58,7 +61,7 @@ class AuthController extends Controller
             'password' => 'required|string|confirmed|min:6',
         ]);
         try {
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
@@ -73,6 +76,23 @@ class AuthController extends Controller
                 'code' => Controller::CODE_DB_TRANSACTION,
                 'message' => $e->getMessage(),
             ], 400);
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = $request->user();
+        if (Hash::check($request->old_password, $user->password)) {
+            $user->update([
+                'password' => bcrypt($request->password),
+            ]);
+            return response()->json([
+                'message' => __('auth.password_changed'),
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => __('auth.password_not_match'),
+            ], 422);
         }
     }
 }

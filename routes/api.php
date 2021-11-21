@@ -20,6 +20,9 @@ Route::prefix('auth')->group(function () {
     Route::post('logout',     'AuthController@logout');
     Route::post('refresh',    'AuthController@refresh');
     Route::get('me',          'AuthController@me');
+    Route::post('change_password','AuthController@changePassword');
+    Route::post('reset_password','PasswordResetController@resetPassword');
+    Route::post('update_password','UpdatePasswordController@updatePassword');
 });
 //  ONLY ADMINS
 Route::prefix('admin')->group(function () {
