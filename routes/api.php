@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,19 @@ use Illuminate\Support\Facades\Route;
 //  AUTH
 Route::post('register',      'AuthController@register');
 Route::prefix('auth')->group(function () {
-    Route::post('login',      'AuthController@login')->name('login');
-    Route::post('logout',     'AuthController@logout');
-    Route::post('refresh',    'AuthController@refresh');
-    Route::get('me',          'AuthController@me');
-    Route::post('change_password','AuthController@changePassword');
-    Route::post('reset_password','PasswordResetController@resetPassword');
-    Route::post('update_password','UpdatePasswordController@updatePassword');
+    Route::post('login',      'Auth\AuthController@login')->name('login');
+    Route::post('logout',     'Auth\AuthController@logout');
+    Route::post('refresh',    'Auth\AuthController@refresh');
+    Route::get('me',          'Auth\AuthController@me');
+    Route::post('change_password','Auth\AuthController@changePassword');
+    Route::post('reset_password','Auth\PasswordResetController@resetPassword');
+    Route::post('update_password','Auth\UpdatePasswordController@updatePassword');
+    Route::get('redirect_google', 'Auth\UserFromSocialController@redirectGoogle');
+    Route::get('callback_google', 'Auth\UserFromSocialController@callbackGoogle');
+    Route::get('redirect_facebook', 'Auth\UserFromSocialController@redirectFacebook');
+    Route::get('callback_facebook', 'Auth\UserFromSocialController@callbackFacebook');
+    Route::get('redirect_twitter', 'Auth\UserFromSocialController@redirectTwitter');
+    Route::get('callback_twitter', 'Auth\UserFromSocialController@callbackTwitter');
 });
 //  ONLY ADMINS
 Route::prefix('admin')->group(function () {
