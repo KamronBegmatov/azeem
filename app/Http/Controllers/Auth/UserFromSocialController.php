@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\UserFromSocial;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 class UserFromSocialController extends Controller
@@ -43,5 +45,31 @@ class UserFromSocialController extends Controller
         }
         //return redirect()->to('/home');
         return response()->json('Success!');
+    }
+
+    public function redirectFacebook()
+    {
+        return Socialite::driver('facebook')->stateless()->redirect();
+    }
+
+    public function callbackFromFacebook()
+    {
+        try {
+            $user = Socialite::driver('facebook')->stateless()->user();
+
+            $saveUser = UserFromSocial::updateOrCreate([
+                'facebook_id' => $user->getId(),
+            ],[
+                'name' => $user->getName(),
+                'email' => $user->getEmail(),
+                'password' => Hash::make($user->getName().'@'.$user->getId())
+            ]);
+
+            Auth::loginUsingId($saveUser->id);
+
+            return response()->json('Success!');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }
