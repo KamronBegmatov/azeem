@@ -17,14 +17,19 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['register', 'login']]);
     }
 
-    public function login()
+    public function login(array $outerCredentials = [])
     {
-        $credentials = request(['email', 'password']);
+        if (!empty($outerCredentials)){
+            if (! $token = auth()->attempt($outerCredentials)) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+            return $this->respondWithToken($token);
+        }
 
+        $credentials = request(['email', 'password']);
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
         return $this->respondWithToken($token);
     }
 
