@@ -32,7 +32,7 @@ Route::prefix('auth')->group(function () {
     Route::get('callback_twitter', 'Auth\UserFromSocialController@callbackTwitter');
 });
 //  ONLY ADMINS
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth:api', 'admin'])->group(function () {
     Route::resource('languages',     'Admin\LanguageController');
     Route::resource('reciters',      'Admin\ReciterController');
     Route::resource('sura_reciters','Admin\SuraReciterController');
