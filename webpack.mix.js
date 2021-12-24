@@ -17,4 +17,5 @@ const mix = require('laravel-mix');
 //         //
 //     ]);
 
-mix.sass('resources/sass/main.scss', 'public/css');
+mix.sass('resources/sass/main.scss', 'public/css')
+    .browserSync({proxy: "http://127.0.0.1:8000"});
