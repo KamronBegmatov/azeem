@@ -15,7 +15,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="bg">
-                <form>
+                <form onSubmit="onSubmit(e)">
                     <h6>Authorization</h6>
                     <p>Log into your account</p>
                     <div class="mb-3">
@@ -29,10 +29,13 @@
                     <button type="submit" class="btn submit">Submit</button>
                 </form>
             </div>
-
         </div>
     </div>
-
+    <script>
+    function onSubmit(e) {
+            console.log('hello');
+        }
+    </script>
     <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>

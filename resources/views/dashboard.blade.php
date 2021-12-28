@@ -15,6 +15,7 @@
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
     <!-- Site wrapper -->
+    
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
