@@ -15,7 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 //  AUTH
-Route::post('register',      'AuthController@register');
+Route::post('register',      'Auth\AuthController@register');
 Route::prefix('auth')->group(function () {
     Route::post('login',      'Auth\AuthController@login')->name('login');
     Route::post('logout',     'Auth\AuthController@logout');
