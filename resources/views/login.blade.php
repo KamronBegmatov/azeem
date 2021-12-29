@@ -15,7 +15,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="bg">
-                <form onSubmit="onSubmit(e)">
+                <form method="post" action="{{url('api/auth/login')}}">
                     <h6>Authorization</h6>
                     <p>Log into your account</p>
                     <div class="mb-3">
@@ -31,11 +31,6 @@
             </div>
         </div>
     </div>
-    <script>
-    function onSubmit(e) {
-            console.log('hello');
-        }
-    </script>
     <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
