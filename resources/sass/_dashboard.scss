@@ -1,0 +1,12 @@
+.dashboard{
+    .brand-link{
+        span{
+            color:black;
+            font-weight: bold;
+            margin-left:15px;
+        }
+    }
+}
+.layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]){
+    background-color:white !important;
+}

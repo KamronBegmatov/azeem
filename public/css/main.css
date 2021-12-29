@@ -1,4 +1,8 @@
-.wrapper {
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.authorization {
   height: 100vh;
   width: 100%;
   background-size: cover;
@@ -6,14 +10,14 @@
   background-position: center;
   background-image: url("/img/ramadan2.jpg");
 }
-.wrapper .bg {
+.authorization .bg {
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.wrapper .bg form {
+.authorization .bg form {
   background: white;
   height: auto;
   width: 400px;
@@ -21,19 +25,72 @@
   border-radius: 15px;
   box-shadow: 1px 0px 15px 2px rgba(0, 0, 0, 0.2);
 }
-.wrapper .bg form h6 {
+.authorization .bg form h6 {
   color: #D58C07;
   font-size: 30px;
   margin: 0;
 }
-.wrapper .bg form p {
+.authorization .bg form p {
   font-size: 14px;
   color: #cecece;
 }
-.wrapper .bg form button.submit {
+.authorization .bg form button.submit {
   background-color: #D4936D;
   color: white;
 }
-.wrapper .bg form label {
+.authorization .bg form label {
   font-size: 14px;
+}
+
+.dashboard .brand-link span {
+  color: black;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]) {
+  background-color: white !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.home-outter {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: #723e32;
+  background: linear-gradient(180deg, #723e32 0%, #d38412 34%, #f5b533 84%, #ffce4f 100%);
+}
+.home-outter .navbaar {
+  height: 50px;
+  display: flex;
+  padding: 15px 25px;
+  justify-content: flex-end;
+}
+.home-outter .navbaar a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #333b40;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 2px solid #333b40;
+}
+.home-outter .navbaar a:hover {
+  opacity: 0.6;
+}
+.home-outter .content {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-outter .content h4 {
+  font-size: 45px;
+  color: #000;
 }

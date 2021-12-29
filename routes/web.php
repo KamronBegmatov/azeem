@@ -22,3 +22,15 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+Route::get('/widgets', function () {
+    return view('widgets');
+});
+Route::get('/tables/simple', function () {
+    return view('tables/simple');
+});
+Route::get('/tables/data', function () {
+    return view('tables/data');
+});
+Route::get('/tables/jsgrid', function () {
+    return view('tables/simple');
+})->name("jsgrid");

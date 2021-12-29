@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap-grid.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <title>Document</title>
+    <title>Log In</title>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper authorization">
         <div class="container">
             <div class="bg">
                 <form method="post" action="{{url('api/auth/login')}}">
