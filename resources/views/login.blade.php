@@ -15,22 +15,36 @@
     <div class="wrapper authorization">
         <div class="container">
             <div class="bg">
-                <form method="post" action="{{url('api/auth/login')}}">
+                <form method="POST" action="{{url('api/auth/login')}}">
+                @csrf
                     <h6>Authorization</h6>
                     <p>Log into your account</p>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                     </div>
                     <button type="submit" class="btn submit">Submit</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+
+    $('form').append('{{csrf_field()}}');
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            //////////// Only for your domain
+            if (settings.url.indexOf(document.domain) >= 0) {
+                xhr.setRequestHeader("X-CSRF-Token", "{{csrf_token()}}");
+            }
+        }
+    });
+    </script>
     <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>

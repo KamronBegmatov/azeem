@@ -120,25 +120,25 @@
                             </a>
                             <ul class="nav nav-treeview nav-child-indent">
                                 <li class="nav-item">
-                                    <a href="../forms/general.html" class="nav-link">
+                                    <a href="/forms/general" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>General Elements</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../forms/advanced.html" class="nav-link">
+                                    <a href="/forms/advanced" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Advanced Elements</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../forms/editors.html" class="nav-link">
+                                    <a href="/forms/editors" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Editors</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../forms/validation.html" class="nav-link">
+                                    <a href="/forms/validation" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Validation</p>
                                     </a>
@@ -185,19 +185,19 @@
                             </a>
                             <ul class="nav nav-treeview nav-child-indent">
                                 <li class="nav-item">
-                                    <a href="../mailbox/mailbox.html" class="nav-link">
+                                    <a href="/mailbox/mailbox" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Inbox</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../mailbox/compose.html" class="nav-link">
+                                    <a href="/mailbox/compose" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Compose</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../mailbox/read-mail.html" class="nav-link">
+                                    <a href="/mailbox/read-mail" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Read</p>
                                     </a>
