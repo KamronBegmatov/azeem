@@ -1,0 +1,44 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.authorization{
+    height:100vh;
+    width:100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image:url("/img/ramadan2.jpg");
+    .bg{
+        height:100vh;
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        form{
+            background:white;
+            height:auto;
+            width:400px;
+            padding:30px 40px;
+            border-radius:15px;
+            -webkit-box-shadow: 1px 0px 15px 2px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 1px 0px 15px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 1px 0px 15px 2px rgba(0, 0, 0, 0.2);
+            h6{
+                color:#D58C07;
+                font-size:30px;
+                margin:0;
+            }
+            p{
+                font-size:14px;
+                color:#cecece;
+            }
+            button.submit{
+                background-color:#D4936D;
+                color:white;
+            }
+            label{
+                font-size:14px;
+            }
+        }
+    }
+}
