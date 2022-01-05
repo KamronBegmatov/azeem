@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/bootstrap-grid.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <title>Log In</title>
@@ -32,20 +31,6 @@
             </div>
         </div>
     </div>
-    <script>
-
-    $('form').append('{{csrf_field()}}');
-
-    $.ajaxSetup({
-        beforeSend: function (xhr, settings) {
-            //////////// Only for your domain
-            if (settings.url.indexOf(document.domain) >= 0) {
-                xhr.setRequestHeader("X-CSRF-Token", "{{csrf_token()}}");
-            }
-        }
-    });
-    </script>
-    <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
 
