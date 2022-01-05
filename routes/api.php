@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 //  AUTH
 Route::post('register',      'AuthController@register');
 Route::prefix('auth')->group(function () {
-    Route::post('login',      'AuthController@login')->name('login');
+    Route::post('login',      'AuthController@login');
     Route::post('logout',     'AuthController@logout');
     Route::post('refresh',    'AuthController@refresh');
     Route::get('me',          'AuthController@me');
@@ -25,7 +25,7 @@ Route::prefix('auth')->group(function () {
     Route::post('update_password','UpdatePasswordController@updatePassword');
 });
 //  ONLY ADMINS
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:api')->group(function () {
     Route::resource('languages',     'Admin\LanguageController');
     Route::resource('reciters',      'Admin\ReciterController');
     Route::resource('sura_reciters','Admin\SuraReciterController');
