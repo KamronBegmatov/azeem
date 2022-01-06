@@ -25,3 +25,18 @@ Route::get('/dashboard', function () {
 Route::get('/languages', function () {
     return view('/content/languages');
 });
+Route::get('/shahada', function () {
+    return view('/content/shahada');
+});
+Route::get('/allahNames', function () {
+    return view('/content/allahNames');
+});
+Route::get('/allahNamesTrans', function () {
+    return view('/content/allahNamesTrans');
+});
+Route::get('/systemWords', function () {
+    return view('/content/systemWords');
+});
+Route::get('/suraTrans', function () {
+    return view('/content/suraTrans');
+});

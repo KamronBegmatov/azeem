@@ -14,13 +14,19 @@
              <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent " data-widget="treeview" role="menu"
                  data-accordion="false">
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="allahNames" class="nav-link">
                          <i class="fas fa-sort-alpha-up nav-icon"></i>
                          <p>Allah names</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="allahNamesTrans" class="nav-link">
+                         <i class="fas fa-sort-alpha-up nav-icon"></i>
+                         <p>Allah names Translations</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/shahada" class="nav-link">
                          <i class="fas fa-praying-hands nav-icon"></i>
                          <p>Shahada</p>
                      </a>
@@ -32,9 +38,15 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="/systemWords" class="nav-link">
                          <i class="fas fa-list-ol nav-icon"></i>
                          <p>System words</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/suraTrans" class="nav-link">
+                         <i class="fas fa-list-ol nav-icon"></i>
+                         <p>Suras' translation</p>
                      </a>
                  </li>
                  <li class="nav-item">

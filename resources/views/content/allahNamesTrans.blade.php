@@ -10,15 +10,17 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>text</th>
+                            <th>allah_name_id</th>
+                            <th>name</th>
                             <th>iso-code</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td></td>
-                            <td>There is no God but Allah</td>
-                            <td>ru</td>
+                            <td>1</td>
+                            <td>Ar-Rahman</td>
+                            <td>uz</td>
                         </tr>
                     </tbody>
                 </table>

@@ -10,14 +10,16 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>title</th>
                             <th>text</th>
-                            <th>iso-code</th>
+                            <th>iso_code</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td></td>
-                            <td>There is no God but Allah</td>
+                            <td>prayer_time</td>
+                            <td>Prayer time</td>
                             <td>ru</td>
                         </tr>
                     </tbody>
