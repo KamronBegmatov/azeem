@@ -24,7 +24,7 @@
                                 <td>1</td>
                                 <td>uz</td>
                                 <td>uz-uz</td>
-                                <td><button class="btn"><i class="fa fa-eye"></i></button></td>
+                                <td><a  href="/editLanguages" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -32,7 +32,7 @@
                                 <td>1</td>
                                 <td>ru</td>
                                 <td>ru-ru</td>
-                                <td><button class="btn"><i class="fa fa-eye"></i></button></td>
+                                <td><a href="/editLanguages" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -40,5 +40,4 @@
             </div>
         </div>
     </div>
-    
 @stop

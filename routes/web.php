@@ -40,3 +40,6 @@ Route::get('/systemWords', function () {
 Route::get('/suraTrans', function () {
     return view('/content/suraTrans');
 });
+Route::get('/editLanguages', function () {
+    return view('/content/editLang');
+});

@@ -14,19 +14,20 @@
              <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent " data-widget="treeview" role="menu"
                  data-accordion="false">
                  <li class="nav-item">
-                     <a href="allahNames" class="nav-link">
-                         <i class="fas fa-sort-alpha-up nav-icon"></i>
+                     <a href="/allahNames" class="nav-link {{request()->is('allahNames') ? 'active' : '' }} ">
+                         <i class=" fas fa-sort-alpha-up nav-icon"></i>
+                     
                          <p>Allah names</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="allahNamesTrans" class="nav-link">
+                     <a href="/allahNamesTrans" class=" nav-link {{request()->is('allahNamesTrans') ? 'active' : '' }}">
                          <i class="fas fa-sort-alpha-up nav-icon"></i>
                          <p>Allah names Translations</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/shahada" class="nav-link">
+                     <a href="/shahada" class="nav-link {{request()->is('shahada') ? 'active' : '' }}">
                          <i class="fas fa-praying-hands nav-icon"></i>
                          <p>Shahada</p>
                      </a>
@@ -38,25 +39,25 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/systemWords" class="nav-link">
+                     <a href="/systemWords" class="nav-link  {{request()->is('systemWords') ? 'active' : '' }}">
                          <i class="fas fa-list-ol nav-icon"></i>
                          <p>System words</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/suraTrans" class="nav-link">
+                     <a href="/suraTrans" class="nav-link  {{request()->is('suraTrans') ? 'active' : '' }}">
                          <i class="fas fa-list-ol nav-icon"></i>
                          <p>Suras' translation</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/languages" class="nav-link">
+                     <a href="/languages" class="nav-link  {{request()->is('languages') ? 'active' : '' }}">
                          <i class="nav-icon fa fa-language"></i>
                          <p>Languages</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="#" class="nav-link ">
                          <i class="nav-icon fa fa-language"></i>
                          <p>
                              Dropdown
