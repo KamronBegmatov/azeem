@@ -1,7 +1,28 @@
+@font-face{
+    font-family: "SourceSansPro-bold";
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+    src: url("../../public/css/sourceSansPro/SourceSansPro-Bold.ttf") format("truetype");
+}
+@font-face{
+    font-family: "SourceSansPro-light";
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+    src:  url("../../public/css/sourceSansPro/SourceSansPro-Light.ttf") format("truetype");
+}
+@font-face{
+    font-family: "SourceSansPro-regular";
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+    src:  url("../../public/css/sourceSansPro/SourceSansPro-Regular.ttf") format("truetype");
+}
 body {
     margin:0;
     padding:0;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "SourceSansPro-regular";
 }
 .home-outter {
     height:100vh;

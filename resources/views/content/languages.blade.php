@@ -35,6 +35,7 @@
                                 <td><a href="/editLanguages" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                         </tbody>
+                        <a class="create-info" href="/createLanguages"><i class="fas fa-plus"></i> Добавить данные</a>
                     </table>
                 </div>
             </div>

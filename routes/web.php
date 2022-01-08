@@ -41,5 +41,8 @@ Route::get('/suraTrans', function () {
     return view('/content/suraTrans');
 });
 Route::get('/editLanguages', function () {
-    return view('/content/editLang');
+    return view('/content/edit');
+});
+Route::get('/createLanguages', function () {
+    return view('/content/create');
 });
