@@ -1,7 +1,11 @@
 @extends('layout.default')
 
 @section('content')
+<div class="col-sm-6">
+<br>
 
+        <h4 class="m-2">Название товара</h4>
+    </div>
 <form class="fill-form" method="POST" action="url()">
     <div class="row g-3 align-items-center">
         <div class="col-4">

@@ -45,3 +45,11 @@
     }
     
 }
+table{
+    th{
+        box-shadow: 0;
+    }
+}
+.table.table-head-fixed thead tr:nth-child(1) th{
+    box-shadow: none;
+}
