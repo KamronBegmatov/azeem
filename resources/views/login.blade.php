@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +18,7 @@
     <div class="wrapper authorization">
         <div class="container">
             <div class="bg">
-                <form method="POST" action="{{url('api/auth/login')}}">
+                <form method="POST" action="{{url('login/attempt')}}">
                 @csrf
                     <h6>Authorization</h6>
                     <p>Log into your account</p>
@@ -33,5 +37,6 @@
     </div>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
+
 
 </html>

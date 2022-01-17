@@ -16,33 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/login/attempt', 'Admin\LoginController@login')->name('login');
+
 Route::get('/dashboard', function () {
     return view('layout/default');
-});
-Route::get('/languages', function () {
-    return view('/content/languages');
-});
-Route::get('/shahada', function () {
-    return view('/content/shahada');
-});
-Route::get('/allahNames', function () {
-    return view('/content/allahNames');
-});
-Route::get('/allahNamesTrans', function () {
-    return view('/content/allahNamesTrans');
-});
-Route::get('/systemWords', function () {
-    return view('/content/systemWords');
-});
-Route::get('/suraTrans', function () {
-    return view('/content/suraTrans');
-});
-Route::get('/editLanguages', function () {
-    return view('/content/edit');
-});
-Route::get('/createLanguages', function () {
-    return view('/content/create');
-});
+})->name('dashboard');
+
+// should make it with middleware later, don't forget
+//Route::prefix('admin')->middleware('auth:api')->group(function () {
+Route::resource('languages', 'Admin\LanguageController');
+Route::resource('reciters', 'Admin\ReciterController');
+Route::resource('sura_reciters', 'Admin\SuraReciterController');
+Route::resource('system_words', 'Admin\SystemWordController');
+Route::resource('allah_names', 'Admin\AllahNameController');
+Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
+Route::resource('shahada', 'Admin\ShahadaController');
