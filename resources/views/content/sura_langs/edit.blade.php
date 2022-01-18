@@ -21,7 +21,7 @@
             <label for="inputPassword2" class="col-form-label">Sura</label>
         </div>
         <div class="col-8">
-            <input type="number" name="name" id="inputPassword2" class="form-control"
+            <input type="number" name="sura" id="inputPassword2" class="form-control"
                 aria-describedby="passwordHelpInline" value="{{ $sura_lang->sura }}">
         </div>
     </div>
@@ -30,7 +30,7 @@
             <label for="inputPassword3" class="col-form-label">Aya</label>
         </div>
         <div class="col-8">
-            <input type="number" name="name" id="inputPassword3" class="form-control"
+            <input type="number" name="aya" id="inputPassword3" class="form-control"
                 aria-describedby="passwordHelpInline" value="{{ $sura_lang->aya }}">
         </div>
     </div>
@@ -39,7 +39,7 @@
             <label for="inputPassword4" class="col-form-label">Text</label>
         </div>
         <div class="col-8">
-            <input type="text" name="name" id="inputPassword4" class="form-control"
+            <input type="text" name="text" id="inputPassword4" class="form-control"
                 aria-describedby="passwordHelpInline" value="{{ $sura_lang->text }}">
         </div>
     </div>
@@ -48,7 +48,7 @@
             <label for="inputPassword5" class="col-form-label">Iso-code</label>
         </div>
         <div class="col-8">
-            <input type="text" name="iso-code" id="inputPassword5" class="form-control"
+            <input type="text" name="iso_code" id="inputPassword5" class="form-control"
                 aria-describedby="passwordHelpInline" value="{{ $sura_lang->iso_code }}">
         </div>
     </div>
@@ -66,17 +66,8 @@
             <label for="inputPassword7" class="col-form-label">Location</label>
         </div>
         <div class="col-8">
-            <input type="text" name="active" id="inputPassword7" class="form-control"
+            <input type="text" name="location" id="inputPassword7" class="form-control"
                 aria-describedby="passwordHelpInline" value="{{ $sura_lang->location }}">
-        </div>
-    </div>
-    <div class="row g-3 align-items-center">
-        <div class="col-4">
-            <label for="inputPassword8" class="col-form-label">Action</label>
-        </div>
-        <div class="col-8">
-            <input type="text" name="sura_lang-action" id="inputPassword8" class="form-control"
-                aria-describedby="passwordHelpInline" value="{{ $sura_lang->sura_lang_action }}">
         </div>
     </div>
     <div class="row g-3">

@@ -4,7 +4,9 @@
     <div class="row m-2">
         <div class="col-12">
             <div class="card">
-
+                <div class="col-sm-6">
+                    <h4 class="m-2">Languages</h4>
+                </div>
                 <div class="card-body table-responsive p-0" style="height: 300px;">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>

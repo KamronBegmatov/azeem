@@ -4,18 +4,20 @@
     <div class="row m-2">
         <div class="col-12">
             <div class="card">
-
+                <div class="col-sm-6">
+                    <h4 class="m-2">Suras</h4>
+                </div>
                 <div class="card-body table-responsive p-0" style="height: 300px;">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>sura</th>
-                            <th>aya</th>
-                            <th>text</th>
-                            <th>iso-code</th>
+                            <th>Sura</th>
+                            <th>Aya</th>
+                            <th>Text</th>
+                            <th>Iso-code</th>
                             <th>name</th>
-                            <th>location</th>
+                            <th>Location</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -29,7 +31,6 @@
                                 <td>{{$sura_lang->iso_code}}</td>
                                 <td>{{$sura_lang->name}}</td>
                                 <td>{{$sura_lang->location}}</td>
-                                <td>{{$sura_lang->action}}</td>
                                 <td><a  href="{{ route('sura_langs.edit',$sura_lang->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                         @endforeach
