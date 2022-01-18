@@ -2,9 +2,11 @@
 
 @section('content')
 <div class="row m-2">
+    <div class="col-sm-6">
+        <h4 class="m-2">Название товара</h4>
+    </div>
     <div class="col-12">
         <div class="card">
-
             <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
@@ -12,6 +14,7 @@
                             <th>ID</th>
                             <th>text</th>
                             <th>iso-code</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -19,8 +22,10 @@
                             <td></td>
                             <td>There is no God but Allah</td>
                             <td>ru</td>
+                            <td><a href="/editLanguages" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                         </tr>
                     </tbody>
+                    <a class="create-info" href="/createLanguages"><i class="fas fa-plus"></i> Добавить данные</a>
                 </table>
             </div>
         </div>

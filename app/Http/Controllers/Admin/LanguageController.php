@@ -10,14 +10,22 @@ use Illuminate\Http\Request;
 class LanguageController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-        $languages = Language::query();
+/*        $languages = Language::query();
         $pages = 10;
         if ($request->has('per_page')){
             $pages = $request->per_page;
         }
-        return LanguageResource::collection($languages->paginate($pages));
+        return LanguageResource::collection($languages->paginate($pages));*/
+        $languages = Language::all();
+
+        return view('content.languages.index',compact('languages'));
+    }
+
+    public function create()
+    {
+        return view('content.languages.create');
     }
 
     public function store(Request $request)
@@ -25,20 +33,28 @@ class LanguageController extends Controller
         $request->validate([
             'name' => 'required',
             'active' => 'boolean',
-            'iso_code' => 'required|unique',
+            'iso_code' => 'required|unique:languages,iso_code',
         ]);
+
         $language = Language::create([
             'name' => $request->name,
             'active' => $request->active,
             'iso_code' => $request->iso_code,
             'language_code' => $request->language_code,
         ]);
-        return new LanguageResource($language);
+
+        return redirect()->route('languages.index')
+            ->with('Success','Languages created successfully');
     }
 
     public function show(Language $language)
     {
         return new LanguageResource($language);
+    }
+
+    public function edit(Language $language)
+    {
+        return view('content.languages.edit',compact('language'));
     }
 
     public function update(Request $request, Language $language)
@@ -47,20 +63,27 @@ class LanguageController extends Controller
             'active' => 'boolean',
             'iso_code' => 'unique',
         ]);
+
         if ($request->has('name')) {
             $language->name = $request->name;
         }
+
         if ($request->has('active')) {
             $language->active = $request->active;
         }
+
         if ($request->has('iso_code')) {
             $language->iso_code = $request->iso_code;
         }
+
         if ($request->has('language_code')) {
             $language->language_code = $request->language_code;
         }
+
         $language->save();
-        return new LanguageResource($language);
+
+        return redirect()->route('languages.index')
+            ->with('Success','Language updated successfully');
     }
 
     public function destroy(Language $language)

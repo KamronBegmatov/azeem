@@ -17,7 +17,6 @@
        
     
         <div class="content-wrapper">
-            @include('layout.title')
         
             @yield('content')
 

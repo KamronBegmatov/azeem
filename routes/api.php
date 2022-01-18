@@ -24,16 +24,6 @@ Route::prefix('auth')->group(function () {
     Route::post('reset_password','PasswordResetController@resetPassword');
     Route::post('update_password','UpdatePasswordController@updatePassword');
 });
-//  ONLY ADMINS
-Route::prefix('admin')->middleware('auth:api')->group(function () {
-    Route::resource('languages',     'Admin\LanguageController');
-    Route::resource('reciters',      'Admin\ReciterController');
-    Route::resource('sura_reciters','Admin\SuraReciterController');
-    Route::resource('system_words', 'Admin\SystemWordController');
-    Route::resource('allah_names', 'Admin\AllahNameController');
-    Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
-    Route::resource('shahada', 'Admin\ShahadaController');
-});
 //  FRONT
 Route::prefix('front')->group(function () {
     Route::get('system_words', 'Front\SystemWordController@index');           // API for all pages

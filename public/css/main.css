@@ -82,6 +82,14 @@
   margin: 3% 0 1% auto;
 }
 
+table th {
+  box-shadow: 0;
+}
+
+.table.table-head-fixed thead tr:nth-child(1) th {
+  box-shadow: none;
+}
+
 @font-face {
   font-family: "SourceSansPro-bold";
   font-weight: normal;

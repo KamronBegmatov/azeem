@@ -10,7 +10,9 @@ class ShahadaController extends Controller
 {
     public function index()
     {
-        return Shahada::with('iso_cod')->get();
+        $shahada = Shahada::with('lang')->get();
+
+        return view('content.shahada.index', compact($shahada));
     }
 
     public function store(Request $request)

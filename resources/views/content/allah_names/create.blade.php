@@ -2,8 +2,9 @@
 
 @section('content')
 
-<form class="fill-form" method="POST" action="url()">
-    <div class="row g-3 align-items-center">
+<form class="fill-form" method="POST" action="{{ url('allah_names') }}">
+    @csrf
+{{--    <div class="row g-3 align-items-center">
         <div class="col-4">
             <label for="inputPassword6" class="col-form-label">ID</label>
         </div>
@@ -11,7 +12,7 @@
             <input type="number" name="id" id="inputPassword6" class="form-control"
                 aria-describedby="passwordHelpInline">
         </div>
-    </div>
+    </div>--}}
     <div class="row g-3 align-items-center">
         <div class="col-4">
             <label for="inputPassword6" class="col-form-label">Name</label>
@@ -35,16 +36,16 @@
             <label for="inputPassword6" class="col-form-label">Iso-code</label>
         </div>
         <div class="col-8">
-            <input type="text" name="iso-code" id="inputPassword6" class="form-control"
+            <input type="text" name="iso_code" id="inputPassword6" class="form-control"
                 aria-describedby="passwordHelpInline">
         </div>
     </div>
     <div class="row g-3 align-items-center">
         <div class="col-4">
-            <label for="inputPassword6" class="col-form-label">Language-code</label>
+            <label for="inputPassword6" class="col-form-label">allah_name-code</label>
         </div>
         <div class="col-8">
-            <input type="text" name="language-code" id="inputPassword6" class="form-control"
+            <input type="text" name="allah_name_code" id="inputPassword6" class="form-control"
                 aria-describedby="passwordHelpInline">
         </div>
     </div>
