@@ -23,16 +23,16 @@ Route::get('/login', function () {
 
 Route::post('/login/attempt', 'Admin\LoginController@login')->name('login');
 
-Route::get('/dashboard', function () {
+Route::get('dashboard', function () {
     return view('layout/default');
 })->name('dashboard');
 
-// should make it with middleware later, don't forget
-//Route::prefix('admin')->middleware('auth:api')->group(function () {
-Route::resource('languages', 'Admin\LanguageController');
-Route::resource('reciters', 'Admin\ReciterController');
-Route::resource('sura_reciters', 'Admin\SuraReciterController');
-Route::resource('system_words', 'Admin\SystemWordController');
-Route::resource('allah_names', 'Admin\AllahNameController');
-Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
-Route::resource('shahada', 'Admin\ShahadaController');
+Route::middleware(['auth:api', 'admin'])->group(function () {
+    Route::resource('languages', 'Admin\LanguageController');
+    Route::resource('reciters', 'Admin\ReciterController');
+    Route::resource('sura_reciters', 'Admin\SuraReciterController');
+    Route::resource('system_words', 'Admin\SystemWordController');
+    Route::resource('allah_names', 'Admin\AllahNameController');
+    Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
+    Route::resource('shahada', 'Admin\ShahadaController');
+});

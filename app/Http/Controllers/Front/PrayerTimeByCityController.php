@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class PrayerTimeController extends Controller
+class PrayerTimeByCityController extends Controller
 {
     public $method;
     public $school;
@@ -21,9 +21,9 @@ class PrayerTimeController extends Controller
     {
         $annual = $request->has('annual') ? $request->annual : 0;
 
-        $prayer_times = Http::get('https://api.aladhan.com/v1/calendar', [
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
+        $prayer_times = Http::get('http://api.aladhan.com/v1/calendarByCity', [
+            'city' => $request->city,
+            'country' => $request->country,
             'month' => $request->month,
             'year' => $request->year,
             'method' => $this->method,
@@ -36,10 +36,10 @@ class PrayerTimeController extends Controller
 
     public function show(Request $request)
     {
-        $prayer_times = Http::get('https://api.aladhan.com/v1/timings', [
+        $prayer_times = Http::get('http://api.aladhan.com/v1/timingsByCity', [
             'date_or_timestamp' => $request->date_or_timestamp,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
+            'city' => $request->city,
+            'country' => $request->country,
             'method' => $this->method,
             'school' => $this->school,
         ]);
