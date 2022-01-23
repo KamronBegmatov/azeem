@@ -1,6 +1,8 @@
 @extends('layout.default')
 
 @section('content')
+<div class="col-sm-6">
+<br>
 
 <form class="fill-form" method="POST" action="{{ url('languages', $language) }}">
     @method('PATCH')
@@ -37,7 +39,7 @@
             <label for="inputPassword6" class="col-form-label">Iso-code</label>
         </div>
         <div class="col-8">
-            <input type="text" name="iso-code" id="inputPassword6" class="form-control"
+            <input type="text" name="iso_code" id="inputPassword6" class="form-control"
                 aria-describedby="passwordHelpInline" value="{{ $language->iso_code }}">
         </div>
     </div>
