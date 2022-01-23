@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -31,8 +32,11 @@
                         </tbody>
                         <a class="create-info" href="{{ route('system_words.create') }}"><i class="fas fa-plus"></i> Добавить данные</a>
                     </table>
+
                 </div>
             </div>
         </div>
     </div>
+    {{ $system_words->links() }}
 @stop
+@endif

@@ -1,6 +1,9 @@
+@if(session('token'))
+
 @extends('layout.default')
 
 @section('content')
+
     <div class="row m-2">
         <div class="col-12">
             <div class="card">
@@ -38,3 +41,4 @@
         </div>
     </div>
 @stop
+@endif

@@ -13,26 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',                          'Admin\LoginController@index');
+Route::get('login',                      'Admin\LoginController@login');
+Route::get('logout',                     'Admin\LoginController@logout');
+Route::get('dashboard',                  'Admin\LoginController@dashboard');
+Route::post('login/attempt',             'Admin\LoginController@loginAttempt');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::resource('languages',         'Admin\LanguageController');
+Route::resource('reciters',          'Admin\ReciterController');
+Route::resource('sura_reciters',     'Admin\SuraReciterController');
+Route::resource('system_words',      'Admin\SystemWordController');
+Route::resource('allah_names',       'Admin\AllahNameController');
+Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
+Route::resource('shahada',           'Admin\ShahadaController');
 
-Route::post('/login/attempt', 'Admin\LoginController@login')->name('login');
-
-Route::get('dashboard', function () {
-    return view('layout/default');
-})->name('dashboard');
-
-Route::middleware(['auth:api', 'admin'])->group(function () {
-    Route::resource('languages', 'Admin\LanguageController');
-    Route::resource('reciters', 'Admin\ReciterController');
-    Route::resource('sura_reciters', 'Admin\SuraReciterController');
-    Route::resource('system_words', 'Admin\SystemWordController');
-    Route::resource('allah_names', 'Admin\AllahNameController');
-    Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
-    Route::resource('shahada', 'Admin\ShahadaController');
-});

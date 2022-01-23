@@ -11,7 +11,8 @@ class SystemWordController extends Controller
 {
     public function index(Request $request)
     {
-        $system_words = SystemWord::where('iso_code', $request->lang);
+        $system_words = SystemWord::where('iso_code', $request->iso_code);
+
         return SystemWordResource::collection($system_words->get());
     }
 

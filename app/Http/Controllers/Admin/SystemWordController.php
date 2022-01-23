@@ -9,14 +9,13 @@ use Illuminate\Http\Request;
 
 class SystemWordController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $systemWords = SystemWord::where('iso_code', $request->lang);
-        $pages = 10;
-        if ($request->has('per_page')) {
-            $pages = $request->per_page;
-        }
-        return SystemWordResource::collection($systemWords->paginate($pages));
+        return view('content.system_words.index', ['system_words' => SystemWord::paginate(20)]);
+    }
+
+    public function create(){
+        return view('content.system_words.create');
     }
 
     public function store(Request $request)
@@ -26,47 +25,62 @@ class SystemWordController extends Controller
             'text' => 'required',
             'iso_code' => 'required|exists:languages,iso_code',
         ]);
-        $systemWord = SystemWord::create([
+
+        SystemWord::create([
             'title' => $request->title,
             'text' => $request->text,
             'iso_code' => $request->iso_code,
         ]);
-        return new SystemWordResource($systemWord);
+
+        return redirect()->route('system_words.index')
+            ->with('Success','System word created successfully');
     }
 
-    public function show(SystemWord $systemWord)
+    public function show(SystemWord $system_word)
     {
-        return new SystemWordResource($systemWord);
+        return new SystemWordResource($system_word);
     }
 
-    public function update(Request $request, SystemWord $systemWord)
+    public function edit(SystemWord $system_word)
+    {
+        return view('content.system_words.edit', compact('system_word'));
+    }
+
+    public function update(Request $request, SystemWord $system_word)
     {
         $request->validate([
             'iso_code' => 'exists:languages,iso_code',
         ]);
+
         if ($request->has('title')) {
-            $systemWord->title = $request->title;
+            $system_word->title = $request->title;
         }
+
         if ($request->has('text')) {
-            $systemWord->text = $request->text;
+            $system_word->text = $request->text;
         }
+
         if ($request->has('iso_code')) {
-            $systemWord->iso_code = $request->iso_code;
+            $system_word->iso_code = $request->iso_code;
         }
-        $systemWord->save();
-        return new SystemWordResource($systemWord);
+
+        $system_word->save();
+
+        return redirect()->route('system_words.index')
+            ->with('Success','System word updated successfully');
     }
 
-    public function destroy(SystemWord $systemWord)
+    public function destroy(SystemWord $system_word)
     {
         try {
-            $systemWord->delete();
+            $system_word->delete();
         } catch (\Exception $e) {
             return response()->json([
-                'code' => Controller::CODE_DB_TRANSACTION,
                 'message' => $e->getMessage(),
             ], 400);
         }
-        return $systemWord->id;
+
+        return  redirect()->route('system_words.index')
+            ->with('Success','System word deleted successfully');
     }
 }

@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -49,3 +50,4 @@
 
 </form>
 @stop
+@endif
