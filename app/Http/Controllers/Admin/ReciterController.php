@@ -99,6 +99,6 @@ class ReciterController extends Controller
             ], 400);
         }
         return  redirect()->route('reciters.index')
-            ->with('Success','Reciter deleted successfully');
+            ->with('Success', 'Reciter deleted successfully');
     }
 }

@@ -42,3 +42,7 @@ Route::get('allah_names_langs',           'Front\AllahNameLangController@index')
 Route::get('online_tv',                   'Front\OnlineTvController@index');                // API for 16-17 page
 Route::get('shahada',                     'Front\ShahadaController@index');                 // API for 19 page
 Route::post('feedback',                   'Front\FeedbackController@send');                 // API for 22 page
+Route::get('select_from_lists',           'Front\SelectFromListController@index');          // API for 22 page
+Route::get('qazo',                        'Front\QazoController@show');                     // API for getting qazo of user
+Route::put('qazo',                        'Front\QazoController@update');                   // API for updating qazo of user
+Route::get('geo_code',                    'Front\GeoCodeController@getGeoCode');            // API for getting geocode

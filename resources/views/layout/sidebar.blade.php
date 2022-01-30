@@ -57,6 +57,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="{{route('select_from_lists.index')}}" class="nav-link  {{request()->is('select_from_lists') ? 'active' : '' }}">
+                         <i class="nav-icon fa fa-language"></i>
+                         <p>Selects</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="#" class="nav-link ">
                          <i class="nav-icon fa fa-language"></i>
                          <p>

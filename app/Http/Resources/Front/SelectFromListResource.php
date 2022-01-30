@@ -5,10 +5,10 @@ namespace App\Http\Resources\Front;
 use App\Http\Resources\Admin\LanguageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SystemWordResource extends JsonResource
+class SelectFromListResource extends JsonResource
 {
 
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'id' => $this->id,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSystemWordRequest;
 use App\Http\Resources\Admin\SystemWordResource;
 use App\Models\SystemWord;
 use Illuminate\Http\Request;
@@ -11,34 +12,20 @@ class SystemWordController extends Controller
 {
     public function index()
     {
-        return view('content.system_words.index', ['system_words' => SystemWord::paginate(20)]);
+        return view('content.system_words.index', ['system_words' => SystemWord::with('language')->paginate(20)]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('content.system_words.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreSystemWordRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'text' => 'required',
-            'iso_code' => 'required|exists:languages,iso_code',
-        ]);
-
-        SystemWord::create([
-            'title' => $request->title,
-            'text' => $request->text,
-            'iso_code' => $request->iso_code,
-        ]);
+        SystemWord::add($request);
 
         return redirect()->route('system_words.index')
             ->with('Success','System word created successfully');
-    }
-
-    public function show(SystemWord $system_word)
-    {
-        return new SystemWordResource($system_word);
     }
 
     public function edit(SystemWord $system_word)
@@ -49,22 +36,12 @@ class SystemWordController extends Controller
     public function update(Request $request, SystemWord $system_word)
     {
         $request->validate([
-            'iso_code' => 'exists:languages,iso_code',
+            'title' => 'string',
+            'text' => 'string',
+            'language_id' => 'exists:languages,id',
         ]);
 
-        if ($request->has('title')) {
-            $system_word->title = $request->title;
-        }
-
-        if ($request->has('text')) {
-            $system_word->text = $request->text;
-        }
-
-        if ($request->has('iso_code')) {
-            $system_word->iso_code = $request->iso_code;
-        }
-
-        $system_word->save();
+        $system_word->update($request->all);
 
         return redirect()->route('system_words.index')
             ->with('Success','System word updated successfully');

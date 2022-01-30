@@ -1,12 +1,14 @@
 @if(session('token'))
+
 @extends('layout.default')
 
 @section('content')
+
     <div class="row m-2">
         <div class="col-12">
             <div class="card">
                 <div class="col-sm-6">
-                    <h4 class="m-2">System words</h4>
+                    <h4 class="m-2">Selects</h4>
                 </div>
                 <div class="card-body table-responsive p-0" style="height: 300px;">
                     <table class="table table-head-fixed text-nowrap">
@@ -20,23 +22,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($system_words as $system_word)
+                        @foreach($select_from_lists as $select)
                             <tr>
-                                <td>{{$system_word->id}}</td>
-                                <td>{{$system_word->title}}</td>
-                                <td>{{$system_word->text}}</td>
-                                <td>{{$system_word->language->name}}</td>
-                                <td><a  href="{{ route('system_words.edit',$system_word->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
+                                <td>{{$select->id}}</td>
+                                <td>{{$select->title}}</td>
+                                <td>{{$select->text}}</td>
+                                <td>{{$select->language->name}}</td>
+                                <td><a  href="{{ route('select_from_lists.edit',$select->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                         @endforeach
                         </tbody>
-                        <a class="create-info" href="{{ route('system_words.create') }}"><i class="fas fa-plus"></i> Добавить данные</a>
+                        <a class="create-info" href="{{ route('select_from_lists.create') }}"><i class="fas fa-plus"></i> Добавить данные</a>
                     </table>
-
                 </div>
             </div>
         </div>
     </div>
-    {{ $system_words->links() }}
 @stop
 @endif

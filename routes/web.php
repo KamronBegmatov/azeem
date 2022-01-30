@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',                          'Admin\LoginController@index');
 Route::get('login',                      'Admin\LoginController@login');
 Route::get('logout',                     'Admin\LoginController@logout');
-Route::get('dashboard',                  'Admin\LoginController@dashboard');
+Route::get('dashboard',                  'Admin\LoginController@dashboard')->name('dashboard');
 Route::post('login/attempt',             'Admin\LoginController@loginAttempt');
 
 Route::resource('languages',         'Admin\LanguageController');
@@ -26,4 +26,5 @@ Route::resource('system_words',      'Admin\SystemWordController');
 Route::resource('allah_names',       'Admin\AllahNameController');
 Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
 Route::resource('shahada',           'Admin\ShahadaController');
+Route::resource('select_from_lists', 'Admin\SelectFromListController');
 

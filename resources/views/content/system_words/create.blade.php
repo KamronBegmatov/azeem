@@ -34,10 +34,10 @@
     </div>
     <div class="row g-3 align-items-center">
         <div class="col-4">
-            <label for="inputPassword4" class="col-form-label">Iso-code</label>
+            <label for="inputPassword4" class="col-form-label">Language</label>
         </div>
         <div class="col-8">
-            <input type="text" name="iso_code" id="inputPassword4" class="form-control"
+            <input type="text" name="language" id="inputPassword4" class="form-control"
                 aria-describedby="passwordHelpInline">
         </div>
     </div>

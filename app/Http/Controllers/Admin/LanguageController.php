@@ -27,12 +27,7 @@ class LanguageController extends Controller
             'iso_code' => 'required|unique:languages,iso_code',
         ]);
 
-        Language::create([
-            'name' => $request->name,
-            'active' => $request->active,
-            'iso_code' => $request->iso_code,
-            'language_code' => $request->language_code,
-        ]);
+        Language::add($request);
 
         return redirect()->route('languages.index')
             ->with('Success','Languages created successfully');
@@ -51,27 +46,13 @@ class LanguageController extends Controller
     public function update(Request $request, Language $language)
     {
         $request->validate([
+            'name' => 'string',
             'active' => 'boolean',
             'iso_code' => 'unique',
+            'language_code' => 'string'
         ]);
 
-        if ($request->has('name')) {
-            $language->name = $request->name;
-        }
-
-        if ($request->has('active')) {
-            $language->active = $request->active;
-        }
-
-        if ($request->has('iso_code')) {
-            $language->iso_code = $request->iso_code;
-        }
-
-        if ($request->has('language_code')) {
-            $language->language_code = $request->language_code;
-        }
-
-        $language->save();
+        $language->update($request->all());
 
         return redirect()->route('languages.index')
             ->with('Success','Language updated successfully');
