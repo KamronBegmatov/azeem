@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\ReciterResource;
+use App\Http\Requests\StoreReciterRequest;
 use App\Models\Reciter;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image as Intervention;
 
 class ReciterController extends Controller
 {
@@ -21,37 +19,12 @@ class ReciterController extends Controller
         return view('content.reciters.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreReciterRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $request->validate([
-            'name' => 'required',
-            'info' => 'required',
-            'style' => 'required',
-            'image' => 'required|file',
-        ]);
-
-        $image = Intervention::make($request->image);
-
-        if (!file_exists('storage/reciters/')) {
-            mkdir('storage/reciters/', 0777, true);
-        }
-
-        $image->save(public_path('storage/reciters/' . $image->filename . '.webp'));
-
-        Reciter::create([
-            'name' => $request->name,
-            'info' => $request->info,
-            'style' => $request->style,
-            'image' => 'reciters/' . $image->filename . '.webp',
-        ]);
+        Reciter::add($request);
 
         return redirect()->route('reciters.index')
-            ->with('Success','Languages created successfully');
-    }
-
-    public function show(Reciter $reciter)
-    {
-        return new ReciterResource($reciter);
+            ->with('Success','Reciter created successfully');
     }
 
     public function edit(Reciter $reciter)
@@ -59,34 +32,16 @@ class ReciterController extends Controller
         return view('content.reciters.edit',compact('reciter'));
     }
 
-    public function update(Request $request, Reciter $reciter)
+    public function update(Request $request, Reciter $reciter): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'image' => 'file',
         ]);
 
-        if ($request->has('name')) {
-            $reciter->name = $request->name;
-        }
+        $reciter->edit($request);
 
-        if ($request->has('info')) {
-            $reciter->info = $request->info;
-        }
-
-        if ($request->has('style')) {
-            $reciter->style = $request->style;
-        }
-
-        if ($request->has('image')) {
-            Storage::disk('public')->delete($reciter->image);
-            $image = Intervention::make($request->image);
-            $image->save(public_path('storage/reciters/'.$image->filename.'.webp'));
-            $reciter->image = 'reciters/'.$image->filename.'.webp';
-        }
-
-        $reciter->save();
-
-        return new ReciterResource($reciter);
+        return redirect()->route('languages.index')
+            ->with('Success','Language updated successfully');
     }
 
     public function destroy(Reciter $reciter)
