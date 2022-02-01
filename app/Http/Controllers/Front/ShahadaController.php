@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ShahadaController extends Controller
 {
-    public function index(Request $request){
-        return Shahada::where('iso_code', $request->lang)->get();
+    public function index(Request $request)
+    {
+        return Shahada::where('language_id', $request->language_id)->get();
     }
 }

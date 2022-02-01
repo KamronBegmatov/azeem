@@ -27,7 +27,16 @@ class Shahada extends Model
 {
     protected $guarded=[];
 
-    public function lang(){
-        return $this->belongsTo(Language::class, 'iso_code', 'iso_code');
+    public function language(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+    public static function add($request)
+    {
+        return self::create([
+            'text' => $request->text,
+            'language_id' => $request->language_id,
+        ]);
     }
 }

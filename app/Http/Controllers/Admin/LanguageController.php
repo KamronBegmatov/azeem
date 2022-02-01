@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\LanguageResource;
+use App\Http\Requests\UpdateLanguageRequest;
 use App\Models\Language;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class LanguageController extends Controller
         return view('content.languages.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'name' => 'required',
@@ -30,45 +30,27 @@ class LanguageController extends Controller
         Language::add($request);
 
         return redirect()->route('languages.index')
-            ->with('Success','Languages created successfully');
-    }
-
-    public function show(Language $language)
-    {
-        return new LanguageResource($language);
+            ->with('Success', 'Language created successfully');
     }
 
     public function edit(Language $language)
     {
-        return view('content.languages.edit',compact('language'));
+        return view('content.languages.edit', compact('language'));
     }
 
-    public function update(Request $request, Language $language)
+    public function update(UpdateLanguageRequest $request, Language $language): \Illuminate\Http\RedirectResponse
     {
-        $request->validate([
-            'name' => 'string',
-            'active' => 'boolean',
-            'iso_code' => 'unique',
-            'language_code' => 'string'
-        ]);
-
-        $language->update($request->all());
+        $language->update($request->validated());
 
         return redirect()->route('languages.index')
-            ->with('Success','Language updated successfully');
+            ->with('Success', 'Language updated successfully');
     }
 
-    public function destroy(Language $language)
+    public function destroy(Language $language): \Illuminate\Http\RedirectResponse
     {
-        try {
-            $language->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => $e->getMessage(),
-            ], 400);
-        }
+        $language->delete();
 
-        return  redirect()->route('languages.index')
-            ->with('Success','Language deleted successfully');
+        return redirect()->route('languages.index')
+            ->with('Success', 'Language deleted successfully');
     }
 }

@@ -27,7 +27,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{route('shahada.index')}}" class="nav-link {{request()->is('shahada') ? 'active' : '' }}">
+                     <a href="{{route('shahadas.index')}}" class="nav-link {{request()->is('shahadas') ? 'active' : '' }}">
                          <i class="fas fa-praying-hands nav-icon"></i>
                          <p>Shahada</p>
                      </a>
@@ -60,6 +60,12 @@
                      <a href="{{route('select_from_lists.index')}}" class="nav-link  {{request()->is('select_from_lists') ? 'active' : '' }}">
                          <i class="nav-icon fa fa-language"></i>
                          <p>Selects</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('styles.index')}}" class="nav-link  {{request()->is('styles') ? 'active' : '' }}">
+                         <i class="nav-icon fa fa-language"></i>
+                         <p>Styles</p>
                      </a>
                  </li>
                  <li class="nav-item">

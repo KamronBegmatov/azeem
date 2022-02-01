@@ -2,25 +2,28 @@
 @extends('layout.default')
 
 @section('content')
+<div class="col-sm-6">
+<br>
 
-<form class="fill-form" method="POST" action="{{ url('shahadas') }}">
+<form class="fill-form" method="POST" action="{{ url('styles', $style) }}">
+    @method('PATCH')
     @csrf
-{{--    <div class="row g-3 align-items-center">
+    <div class="row g-3 align-items-center">
         <div class="col-4">
             <label for="inputPassword1" class="col-form-label">ID</label>
         </div>
         <div class="col-8">
             <input type="number" name="id" id="inputPassword1" class="form-control"
-                aria-describedby="passwordHelpInline">
+                aria-describedby="passwordHelpInline" value="{{ $style->id }}">
         </div>
-    </div>--}}
+    </div>
     <div class="row g-3 align-items-center">
         <div class="col-4">
-            <label for="inputPassword2" class="col-form-label"> Text</label>
+            <label for="inputPassword2" class="col-form-label">Text</label>
         </div>
         <div class="col-8">
             <input type="text" name="text" id="inputPassword2" class="form-control"
-                aria-describedby="passwordHelpInline">
+                aria-describedby="passwordHelpInline" value="{{ $style->name }}">
         </div>
     </div>
     <div class="row g-3 align-items-center">
@@ -29,7 +32,7 @@
         </div>
         <div class="col-8">
             <input type="text" name="language" id="inputPassword3" class="form-control"
-                aria-describedby="passwordHelpInline">
+                aria-describedby="passwordHelpInline" value="{{ $style->language->name }}">
         </div>
     </div>
     <div class="row g-3">

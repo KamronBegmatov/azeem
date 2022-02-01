@@ -6,29 +6,29 @@
         <div class="col-12">
             <div class="card">
                 <div class="col-sm-6">
-                    <h4 class="m-2">Shahadas</h4>
+                    <h4 class="m-2">Styles of reciters</h4>
                 </div>
                 <div class="card-body table-responsive p-0" style="height: 300px;">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Text</th>
+                            <th>Name</th>
                             <th>Language</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($shahadas as $shahada)
+                        @foreach($styles as $style)
                             <tr>
-                                <td>{{$shahada->id}}</td>
-                                <td>{{$shahada->text}}</td>
-                                <td>{{$shahada->language->name}}</td>
-                                <td><a  href="{{ route('shahadas.edit',$shahada->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
+                                <td>{{$style->id}}</td>
+                                <td>{{$style->name}}</td>
+                                <td>{{$style->language->name}}</td>
+                                <td><a  href="{{ route('styles.edit',$style->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                         @endforeach
                         </tbody>
-                        <a class="create-info" href="{{ route('shahadas.create') }}"><i class="fas fa-plus"></i> Добавить данные</a>
+                        <a class="create-info" href="{{ route('styles.create') }}"><i class="fas fa-plus"></i> Добавить данные</a>
                     </table>
                 </div>
             </div>

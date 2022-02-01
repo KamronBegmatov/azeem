@@ -10,10 +10,10 @@ class GeoCodeController extends Controller
 {
     public function getGeoCode(Request $request): \Illuminate\Http\Client\Response
     {
-        return Http::get('https://maps.googleapis.com/maps/api/geocode/json', [
-            'latlng' => $request->latlng,
-            'sensor' => true,
-            'key' => config('from_env.google_api_key'),
+        return Http::get('https://geocode-maps.yandex.ru/1.x', [
+            'geocode' => $request->geocode,
+            'apikey' => config('from_env.yandex_api_key'),
+            'format' => 'json',
         ]);
     }
 }

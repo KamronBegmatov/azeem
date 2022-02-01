@@ -3,7 +3,7 @@
 
 @section('content')
 
-<form class="fill-form" method="POST" action="{{ url('shahadas') }}">
+<form class="fill-form" method="POST" action="{{ url('styles') }}">
     @csrf
 {{--    <div class="row g-3 align-items-center">
         <div class="col-4">
@@ -16,7 +16,7 @@
     </div>--}}
     <div class="row g-3 align-items-center">
         <div class="col-4">
-            <label for="inputPassword2" class="col-form-label"> Text</label>
+            <label for="inputPassword2" class="col-form-label"> Name</label>
         </div>
         <div class="col-8">
             <input type="text" name="text" id="inputPassword2" class="form-control"

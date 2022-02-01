@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSystemWordRequest;
-use App\Http\Resources\Admin\SystemWordResource;
+use App\Models\Language;
 use App\Models\SystemWord;
 use Illuminate\Http\Request;
 
@@ -17,10 +17,10 @@ class SystemWordController extends Controller
 
     public function create()
     {
-        return view('content.system_words.create');
+        return view('content.system_words.create', ['languages' => Language::all()]);
     }
 
-    public function store(StoreSystemWordRequest $request)
+    public function store(StoreSystemWordRequest $request): \Illuminate\Http\RedirectResponse
     {
         SystemWord::add($request);
 
@@ -30,10 +30,10 @@ class SystemWordController extends Controller
 
     public function edit(SystemWord $system_word)
     {
-        return view('content.system_words.edit', compact('system_word'));
+        return view('content.system_words.edit', ['system_word' => $system_word, 'languages' => Language::all()]);
     }
 
-    public function update(Request $request, SystemWord $system_word)
+    public function update(Request $request, SystemWord $system_word): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'title' => 'string',

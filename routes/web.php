@@ -25,6 +25,7 @@ Route::resource('sura_reciters',     'Admin\SuraReciterController');
 Route::resource('system_words',      'Admin\SystemWordController');
 Route::resource('allah_names',       'Admin\AllahNameController');
 Route::resource('allah_names_langs', 'Admin\AllahNameLangController');
-Route::resource('shahada',           'Admin\ShahadaController');
+Route::resource('shahadas',          'Admin\ShahadaController');
 Route::resource('select_from_lists', 'Admin\SelectFromListController');
+Route::resource('styles',            'Admin\StyleController');
 
