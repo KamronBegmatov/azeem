@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <h4 class="m-2">System words</h4>
                 </div>
-                <div class="card-body table-responsive p-0" style="height: 300px;">
+                <div class="card-body table-responsive p-0">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
@@ -25,7 +25,11 @@
                                 <td>{{$system_word->title}}</td>
                                 <td>{{$system_word->text}}</td>
                                 <td>{{$system_word->iso_code}}</td>
-                                <td><a  href="{{ route('system_words.edit',$system_word->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
+                                <td>
+                                    <a  href="{{ route('system_words.edit',$system_word->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a>
+                                    <a href=""><i class="fas fa-trash"></i></a>
+                                </td>
+
                             </tr>
                         @endforeach
                         </tbody>

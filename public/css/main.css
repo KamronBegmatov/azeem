@@ -38,58 +38,6 @@
   font-size: 14px;
 }
 
-.dashboard .brand-link span {
-  color: black;
-  font-weight: bold;
-  margin-left: 15px;
-}
-
-.layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]) {
-  background-color: white !important;
-}
-
-.create-info {
-  font-size: 16px;
-  margin: 5px 15px 15px 0;
-  color: black;
-  font-family: "SourceSansPro-bold";
-  float: right;
-}
-
-.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
-.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
-  background-color: #eeee;
-  color: black;
-}
-
-.fill-form {
-  width: 60%;
-  margin-left: 2%;
-  padding: 1% 2%;
-  background: white;
-  border: 2px solid #eeee;
-  border-radius: 8px;
-}
-.fill-form .form-control {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #eeee;
-  border-radius: 0;
-}
-.fill-form button.submit {
-  display: block;
-  float: right;
-  margin: 3% 0 1% auto;
-}
-
-table th {
-  box-shadow: 0;
-}
-
-.table.table-head-fixed thead tr:nth-child(1) th {
-  box-shadow: none;
-}
-
 @font-face {
   font-family: "SourceSansPro-bold";
   font-weight: normal;
@@ -115,6 +63,63 @@ body {
   margin: 0;
   padding: 0;
   font-family: "SourceSansPro-regular";
+}
+
+.dashboard .brand-link span {
+  color: black;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.dashboard .card {
+  margin-top: 2%;
+}
+.dashboard .card-body {
+  height: 80vh;
+}
+.dashboard .card-body .create-info {
+  font-size: 16px;
+  margin: 5px 15px 15px 0;
+  color: black;
+  font-family: "SourceSansPro-bold";
+  float: right;
+}
+.dashboard .content-wrapper .edit .fill-form, .dashboard .content-wrapper .create .fill-form {
+  margin-top: 2%;
+  width: 60%;
+  margin-left: 2%;
+  padding: 1% 2%;
+  background: white;
+  border: 2px solid #eeee;
+  border-radius: 8px;
+}
+.dashboard .content-wrapper .edit .fill-form .form-control, .dashboard .content-wrapper .create .fill-form .form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eeee;
+  border-radius: 0;
+}
+.dashboard .content-wrapper .edit .fill-form button.submit, .dashboard .content-wrapper .create .fill-form button.submit {
+  display: block;
+  float: right;
+  margin: 3% 0 1% auto;
+}
+
+.layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]) {
+  background-color: white !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #eeee;
+  color: black;
+}
+
+table th {
+  box-shadow: 0;
+}
+
+.table.table-head-fixed thead tr:nth-child(1) th {
+  box-shadow: none;
 }
 
 .home-outter {

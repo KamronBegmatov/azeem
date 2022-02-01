@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <h4 class="m-2">Languages</h4>
                 </div>
-                <div class="card-body table-responsive p-0" style="height: 300px;">
+                <div class="card-body table-responsive p-0">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
@@ -27,7 +27,10 @@
                                 <td>{{$language->active}}</td>
                                 <td>{{$language->iso_code}}</td>
                                 <td>{{$language->language_code}}</td>
-                                <td><a  href="{{ route('languages.edit',$language->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
+                                <td>
+                                    <a  href="{{ route('languages.edit',$language->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
+                                    <button type="submit" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
