@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Language;
 use App\Models\Shahada;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ShahadaController extends Controller
 
     public function create()
     {
-        return view('content.shahadas.create');
+        return view('content.shahadas.create', ['languages' => Language::all()]);
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
@@ -25,7 +26,7 @@ class ShahadaController extends Controller
             'language_id' => 'required|exists:languages,id',
         ]);
 
-        Shahada::add($request->validated());
+        Shahada::add($request);
 
         return redirect()->route('shahadas.index')
             ->with('Success', 'Shahada created successfully');
@@ -33,17 +34,17 @@ class ShahadaController extends Controller
 
     public function edit(Shahada $shahada)
     {
-        return view('content.shahadas.edit', compact('shahada'));
+        return view('content.shahadas.edit', ['shahada' => $shahada, 'languages' => Language::all()]);
     }
 
     public function update(Request $request, Shahada $shahada): \Illuminate\Http\RedirectResponse
     {
-        $validated = $request->validate([
+        $request->validate([
             'language_id' => 'exists:languages,id',
             'text' => 'min:3|max:1000'
         ]);
 
-        $shahada->update($validated);
+        $shahada->update($request->all());
 
         return redirect()->route('shahadas.index')
             ->with('Success', 'Shahada updated successfully');

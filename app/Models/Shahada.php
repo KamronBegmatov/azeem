@@ -9,16 +9,16 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $text
- * @property string $iso_code
+ * @property int $language_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Language $lang
+ * @property-read \App\Models\Language $language
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada query()
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Shahada whereIsoCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Shahada whereLanguageId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Shahada whereUpdatedAt($value)
  * @mixin \Eloquent

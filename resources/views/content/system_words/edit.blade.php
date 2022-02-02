@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $system_word->id }}">
+                        aria-describedby="passwordHelpInline" value="{{ $system_word->id }}"  disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -39,14 +39,14 @@
                     <label for="inputPassword4" class="col-form-label">Language</label>
                 </div>
                 <div class="col-8">
-                    <select class="form-select">
-                        <option value="1">Русский</option>
-                        <option value="2">Arabic</option>
-                        <option value="3">Uzbek</option>
-                        <option value="4" selected>English</option>
+                    <select class="form-select" name="language_id">
+                        <option selected>{{$system_word->language->name}}</option>
+                        @foreach($languages as $language)
+                            @if(!($language->id == $system_word->language->id))
+                                <option value="{{$language->id}}">{{$language->name}}</option>
+                            @endif
+                        @endforeach
                     </select>
-                    <!-- <input type="text" name="iso_code" id="inputPassword4" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $system_word->language->name }}"> -->
                 </div>
             </div>
             <div class="row g-3">

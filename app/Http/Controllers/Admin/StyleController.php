@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Language;
 use App\Models\Style;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class StyleController extends Controller
 
     public function create()
     {
-        return view('content.styles.create');
+        return view('content.styles.create', ['languages' => Language::all()]);
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
@@ -33,7 +34,7 @@ class StyleController extends Controller
 
     public function edit(Style $style)
     {
-        return view('content.styles.edit', compact('style'));
+        return view('content.styles.edit', ['style' => $style, 'languages' => Language::all()]);
     }
 
     public function update(Request $request, Style $style): \Illuminate\Http\RedirectResponse

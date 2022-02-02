@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $shahada->id }}">
+                        aria-describedby="passwordHelpInline" value="{{ $shahada->id }}"  disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -27,18 +27,17 @@
             </div>
             <div class="row g-3 align-items-center">
                 <div class="col-4">
-                    <label for="inputPassword3" class="col-form-label">Language</label>
+                    <label for="inputPassword3" class="col-form-label">Shahada</label>
                 </div>
                 <div class="col-8">
-                    <select class="form-select">
-                        <!-- @foreach  -->
-                        <option value="1">Русский</option>
-                        <option value="2">Arabic</option>
-                        <option value="3">Uzbek</option>
-                        <option value="4" selected>English</option>
+                    <select class="form-select" name="language_id">
+                        <option selected>{{$shahada->language->name}}</option>
+                        @foreach($languages as $language)
+                            @if(!($language->id == $shahada->language->id))
+                        <option value="{{$language->id}}">{{$language->name}}</option>
+                            @endif
+                        @endforeach
                     </select>
-                    <!-- <input type="text" name="language" id="inputPassword3" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $shahada->language->name }}"> -->
                 </div>
             </div>
             <div class="row g-3">
@@ -48,7 +47,5 @@
         </form>
     </div>
 </div>
-
-
 @stop
 @endif

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSystemWordRequest;
 use App\Http\Requests\UpdateSelectFromListRequest;
+use App\Models\Language;
 use App\Models\SelectFromList;
 
 class SelectFromListController extends Controller
@@ -16,7 +17,7 @@ class SelectFromListController extends Controller
 
     public function create()
     {
-        return view('content.select_from_lists.create');
+        return view('content.select_from_lists.create', ['languages' => Language::all()]);
     }
 
     public function store(StoreSystemWordRequest $request): \Illuminate\Http\RedirectResponse
@@ -29,12 +30,12 @@ class SelectFromListController extends Controller
 
     public function edit(SelectFromList $select_from_list)
     {
-        return view('content.select_from_lists.edit', compact('select_from_list'));
+        return view('content.select_from_lists.edit', ['select_from_list' => $select_from_list, 'languages' => Language::all()]);
     }
 
     public function update(UpdateSelectFromListRequest $request, SelectFromList $select_from_list): \Illuminate\Http\RedirectResponse
     {
-        $select_from_list->update($request->all);
+        $select_from_list->update($request->validated());
 
         return redirect()->route('select_from_lists.index')
             ->with('Success','Select updated successfully');
