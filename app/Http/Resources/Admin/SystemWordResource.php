@@ -13,7 +13,7 @@ class SystemWordResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'text' => $this->text,
-            'iso_code' => new LanguageResource($this->iso_cod),
+            'language' => new LanguageResource($this->language),
         ];
     }
 }

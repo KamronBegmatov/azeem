@@ -14,46 +14,58 @@
              <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent " data-widget="treeview" role="menu"
                  data-accordion="false">
                  <li class="nav-item">
-                     <a href="/allahNames" class="nav-link {{request()->is('allahNames') ? 'active' : '' }} ">
+                     <a href="{{route('allah_names.index')}}" class="nav-link {{request()->is('allahNames') ? 'active' : '' }} ">
                          <i class=" fas fa-sort-alpha-up nav-icon"></i>
-                     
+
                          <p>Allah names</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/allahNamesTrans" class=" nav-link {{request()->is('allahNamesTrans') ? 'active' : '' }}">
+                     <a href="{{route('allah_names_langs.index')}}" class=" nav-link {{request()->is('allahNamesTrans') ? 'active' : '' }}">
                          <i class="fas fa-sort-alpha-up nav-icon"></i>
                          <p>Allah names Translations</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/shahada" class="nav-link {{request()->is('shahada') ? 'active' : '' }}">
+                     <a href="{{route('shahadas.index')}}" class="nav-link {{request()->is('shahadas') ? 'active' : '' }}">
                          <i class="fas fa-praying-hands nav-icon"></i>
                          <p>Shahada</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="{{route('reciters.index')}}" class="nav-link">
                          <i class="fas fa-book-reader nav-icon"></i>
                          <p>Reciters</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/systemWords" class="nav-link  {{request()->is('systemWords') ? 'active' : '' }}">
+                     <a href="{{route('system_words.index')}}" class="nav-link  {{request()->is('systemWords') ? 'active' : '' }}">
                          <i class="fas fa-list-ol nav-icon"></i>
                          <p>System words</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/suraTrans" class="nav-link  {{request()->is('suraTrans') ? 'active' : '' }}">
+                     <a href="{{route('languages.index')}}" class="nav-link  {{request()->is('suraTrans') ? 'active' : '' }}">
                          <i class="fas fa-list-ol nav-icon"></i>
                          <p>Suras' translation</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/languages" class="nav-link  {{request()->is('languages') ? 'active' : '' }}">
+                     <a href="{{route('languages.index')}}" class="nav-link  {{request()->is('languages') ? 'active' : '' }}">
                          <i class="nav-icon fa fa-language"></i>
                          <p>Languages</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('select_from_lists.index')}}" class="nav-link  {{request()->is('select_from_lists') ? 'active' : '' }}">
+                         <i class="nav-icon fa fa-language"></i>
+                         <p>Selects</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('styles.index')}}" class="nav-link  {{request()->is('styles') ? 'active' : '' }}">
+                         <i class="nav-icon fa fa-language"></i>
+                         <p>Styles</p>
                      </a>
                  </li>
                  <li class="nav-item">

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,15 +17,20 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['register', 'login']]);
     }
 
-    public function login()
+    public function login(array $outerCredentials = [])
     {
+        if (!empty($outerCredentials)){
+            if (! $token = auth()->attempt($outerCredentials)) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+            return $this->respondWithToken($token);
+        }
         $credentials = request(['email', 'password']);
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return redirect("dashboard");
-        // return $this->respondWithToken($token);
+        return $this->respondWithToken($token);
     }
 
     public function me()
@@ -60,6 +66,7 @@ class AuthController extends Controller
             'email' => 'required|string|email|unique:users,email',
             'password' => 'required|string|confirmed|min:6',
         ]);
+
         try {
         User::create([
             'name' => $request->name,

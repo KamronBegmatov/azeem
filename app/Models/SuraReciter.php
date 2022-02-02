@@ -34,11 +34,22 @@ class SuraReciter extends Model
 
     protected $table = 'sura_reciters';
 
-    public function reciter(){
+    public function reciter()
+    {
         return $this->belongsTo(Reciter::class);
     }
 
-    public function sura(){
+    public function sura()
+    {
         return $this->belongsTo(Sura::class, 'sura_id', 'sura');
+    }
+
+    public static function add($request)
+    {
+        return self::create([
+            'reciter_id' => $request->reciter_id,
+            'sura_id' => $request->sura_id,
+            'audio' => 'audios/' . $request->reciter_id . '/' . $request->sura_id . '.mp3',
+        ]);
     }
 }

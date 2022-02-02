@@ -6,29 +6,43 @@ use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
-        public function login(array $outerCredentials = [])
-        {
-            if (!empty($outerCredentials)){
-                if (! $token = auth()->attempt($outerCredentials)) {
-                    return response()->json(['error' => 'Unauthorized'], 401);
-                }
-                return $this->respondWithToken($token);
-            }
-            $credentials = request(['email', 'password']);
-            if (! $token = auth()->attempt($credentials)) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-            // don't forget to check with middleware checkIfAdmin
-            $_SESSION['token'] = $this->respondWithToken($token);
-            return redirect()->route('dashboard');
+    public function index()
+    {
+        return view('welcome');
+    }
+
+    public function dashboard()
+    {
+        return view('layout/default');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function loginAttempt()
+    {
+        $credentials = request(['email', 'password']);
+
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-    protected function respondWithToken($token)
+        if (!$this->middleware('admin')) {
+            return response()->json(['error' => 'Forbidden'], 403);
+        }
+
+        session(['token' => $token]);
+        // don't forget to check with middleware checkIfAdmin
+
+        return redirect()->route('dashboard');
+    }
+
+    public function logout()
     {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+        session()->flush();
+
+        return response()->json(['message' => 'Successfully logged out']);
     }
 }

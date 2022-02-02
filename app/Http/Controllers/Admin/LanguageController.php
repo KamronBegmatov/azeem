@@ -3,24 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\LanguageResource;
+use App\Http\Requests\UpdateLanguageRequest;
 use App\Models\Language;
 use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
-
     public function index()
     {
-/*        $languages = Language::query();
-        $pages = 10;
-        if ($request->has('per_page')){
-            $pages = $request->per_page;
-        }
-        return LanguageResource::collection($languages->paginate($pages));*/
-        $languages = Language::all();
-
-        return view('content.languages.index',compact('languages'));
+        return view('content.languages.index', ['languages' => Language::all()]);
     }
 
     public function create()
@@ -28,7 +19,7 @@ class LanguageController extends Controller
         return view('content.languages.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'name' => 'required',
@@ -36,66 +27,30 @@ class LanguageController extends Controller
             'iso_code' => 'required|unique:languages,iso_code',
         ]);
 
-        $language = Language::create([
-            'name' => $request->name,
-            'active' => $request->active,
-            'iso_code' => $request->iso_code,
-            'language_code' => $request->language_code,
-        ]);
+        Language::add($request);
 
         return redirect()->route('languages.index')
-            ->with('Success','Languages created successfully');
-    }
-
-    public function show(Language $language)
-    {
-        return new LanguageResource($language);
+            ->with('Success', 'Language created successfully');
     }
 
     public function edit(Language $language)
     {
-        return view('content.languages.edit',compact('language'));
+        return view('content.languages.edit', compact('language'));
     }
 
-    public function update(Request $request, Language $language)
+    public function update(UpdateLanguageRequest $request, Language $language): \Illuminate\Http\RedirectResponse
     {
-        $request->validate([
-            'active' => 'boolean',
-            'iso_code' => 'unique',
-        ]);
-
-        if ($request->has('name')) {
-            $language->name = $request->name;
-        }
-
-        if ($request->has('active')) {
-            $language->active = $request->active;
-        }
-
-        if ($request->has('iso_code')) {
-            $language->iso_code = $request->iso_code;
-        }
-
-        if ($request->has('language_code')) {
-            $language->language_code = $request->language_code;
-        }
-
-        $language->save();
+        $language->update($request->validated());
 
         return redirect()->route('languages.index')
-            ->with('Success','Language updated successfully');
+            ->with('Success', 'Language updated successfully');
     }
 
-    public function destroy(Language $language)
+    public function destroy(Language $language): \Illuminate\Http\RedirectResponse
     {
-        try {
-            $language->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'code' => Controller::CODE_DB_TRANSACTION,
-                'message' => $e->getMessage(),
-            ], 400);
-        }
-        return $language->id;
+        $language->delete();
+
+        return redirect()->route('languages.index')
+            ->with('Success', 'Language deleted successfully');
     }
 }

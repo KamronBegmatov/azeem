@@ -1,3 +1,5 @@
+@if(session('token'))
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,14 +12,14 @@
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
     <!-- Site wrapper -->
-    
+
     <div class="wrapper dashboard">
         @include('layout.top-nav')
         @include('layout.sidebar')
-       
-    
+
+
         <div class="content-wrapper">
-        
+
             @yield('content')
 
 
@@ -32,3 +34,4 @@
 </body>
 
 </html>
+@endif

@@ -3,70 +3,61 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\SystemWordResource;
+use App\Http\Requests\StoreSystemWordRequest;
+use App\Models\Language;
 use App\Models\SystemWord;
 use Illuminate\Http\Request;
 
 class SystemWordController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $systemWords = SystemWord::where('iso_code', $request->lang);
-        $pages = 10;
-        if ($request->has('per_page')) {
-            $pages = $request->per_page;
-        }
-        return SystemWordResource::collection($systemWords->paginate($pages));
+        return view('content.system_words.index', ['system_words' => SystemWord::with('language')->paginate(20)]);
     }
 
-    public function store(Request $request)
+    public function create()
     {
-        $request->validate([
-            'title' => 'required',
-            'text' => 'required',
-            'iso_code' => 'required|exists:languages,iso_code',
-        ]);
-        $systemWord = SystemWord::create([
-            'title' => $request->title,
-            'text' => $request->text,
-            'iso_code' => $request->iso_code,
-        ]);
-        return new SystemWordResource($systemWord);
+        return view('content.system_words.create', ['languages' => Language::all()]);
     }
 
-    public function show(SystemWord $systemWord)
+    public function store(StoreSystemWordRequest $request): \Illuminate\Http\RedirectResponse
     {
-        return new SystemWordResource($systemWord);
+        SystemWord::add($request);
+
+        return redirect()->route('system_words.index')
+            ->with('Success','System word created successfully');
     }
 
-    public function update(Request $request, SystemWord $systemWord)
+    public function edit(SystemWord $system_word)
+    {
+        return view('content.system_words.edit', ['system_word' => $system_word, 'languages' => Language::all()]);
+    }
+
+    public function update(Request $request, SystemWord $system_word): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
-            'iso_code' => 'exists:languages,iso_code',
+            'title' => 'string',
+            'text' => 'string',
+            'language_id' => 'exists:languages,id',
         ]);
-        if ($request->has('title')) {
-            $systemWord->title = $request->title;
-        }
-        if ($request->has('text')) {
-            $systemWord->text = $request->text;
-        }
-        if ($request->has('iso_code')) {
-            $systemWord->iso_code = $request->iso_code;
-        }
-        $systemWord->save();
-        return new SystemWordResource($systemWord);
+
+        $system_word->update($request->all);
+
+        return redirect()->route('system_words.index')
+            ->with('Success','System word updated successfully');
     }
 
-    public function destroy(SystemWord $systemWord)
+    public function destroy(SystemWord $system_word)
     {
         try {
-            $systemWord->delete();
+            $system_word->delete();
         } catch (\Exception $e) {
             return response()->json([
-                'code' => Controller::CODE_DB_TRANSACTION,
                 'message' => $e->getMessage(),
             ], 400);
         }
-        return $systemWord->id;
+
+        return  redirect()->route('system_words.index')
+            ->with('Success','System word deleted successfully');
     }
 }

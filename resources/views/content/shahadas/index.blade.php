@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -12,8 +13,8 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Iso-code</th>
+                            <th>Text</th>
+                            <th>Language</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -22,7 +23,7 @@
                             <tr>
                                 <td>{{$shahada->id}}</td>
                                 <td>{{$shahada->text}}</td>
-                                <td>{{$shahada->iso_code}}</td>
+                                <td>{{$shahada->language->name}}</td>
                                 <td><a  href="{{ route('shahadas.edit',$shahada->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
                             </tr>
                         @endforeach
@@ -34,3 +35,4 @@
         </div>
     </div>
 @stop
+@endif

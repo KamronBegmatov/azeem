@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+=======
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <title>Log In</title>
@@ -35,3 +43,4 @@
 
 
 </html>
+>>>>>>> d9690cf58e78a273e130a30b0cade2da3b47f7ca

@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -24,10 +25,10 @@
     </div>
     <div class="row g-3 align-items-center">
         <div class="col-4">
-            <label for="inputPassword3" class="col-form-label">Iso-code</label>
+            <label for="inputPassword3" class="col-form-label">Language</label>
         </div>
         <div class="col-8">
-            <input type="text" name="iso_code" id="inputPassword3" class="form-control"
+            <input type="text" name="language" id="inputPassword3" class="form-control"
                 aria-describedby="passwordHelpInline">
         </div>
     </div>
@@ -37,3 +38,4 @@
 
 </form>
 @stop
+@endif

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image as Intervention;
 
 /**
  * App\Models\Reciter
@@ -32,7 +34,50 @@ class Reciter extends Model
 {
     protected $guarded=[];
 
-    public function suras(){
+    public function suras()
+    {
         return $this->hasMany(Sura::class);
+    }
+
+    public static function add($request)
+    {
+        $image = Intervention::make($request->image);
+
+        if (!file_exists('storage/reciters/')) {
+            mkdir('storage/reciters/', 0777, true);
+        }
+
+        $image->save(public_path('storage/reciters/' . $image->filename . '.webp'));
+
+        return self::create([
+            'name' => $request->name,
+            'info' => $request->info,
+            'style' => $request->style,
+            'image' => 'reciters/' . $image->filename . '.webp',
+        ]);
+    }
+
+    public function edit($request)
+    {
+        if ($request->has('name')) {
+            $this->name = $request->name;
+        }
+
+        if ($request->has('info')) {
+            $this->info = $request->info;
+        }
+
+        if ($request->has('style')) {
+            $this->style = $request->style;
+        }
+
+        if ($request->has('image')) {
+            Storage::disk('public')->delete($this->image);
+            $image = Intervention::make($request->image);
+            $image->save(public_path('storage/reciters/'.$image->filename.'.webp'));
+            $this->image = 'reciters/' . $image->filename . '.webp';
+        }
+
+        $this->save();
     }
 }
