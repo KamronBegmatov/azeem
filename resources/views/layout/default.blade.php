@@ -25,7 +25,9 @@
     </div>
     @include('layout.script')
     <script>
-         
+        function deleteTableRow(){
+            console.log(this);
+        }
     </script>
 </body>
 
