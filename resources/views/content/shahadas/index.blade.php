@@ -24,7 +24,10 @@
                                 <td>{{$shahada->id}}</td>
                                 <td>{{$shahada->text}}</td>
                                 <td>{{$shahada->language->name}}</td>
-                                <td><a  href="{{ route('shahadas.edit',$shahada->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
+                                <td>   
+                                    <a  href="{{ route('shahadas.edit',$shahada->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
+                                    <button onclick="deleteTableRow()" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

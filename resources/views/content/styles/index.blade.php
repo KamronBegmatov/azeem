@@ -8,7 +8,7 @@
                 <div class="col-sm-6">
                     <h4 class="m-2">Styles of reciters</h4>
                 </div>
-                <div class="card-body table-responsive p-0" style="height: 300px;">
+                <div class="card-body table-responsive p-0">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
@@ -24,7 +24,10 @@
                                 <td>{{$style->id}}</td>
                                 <td>{{$style->name}}</td>
                                 <td>{{$style->language->name}}</td>
-                                <td><a  href="{{ route('styles.edit',$style->id) }}" class="btn editInfo"><i class="fa fa-pen"></i></a></td>
+                                <td>
+                                    <a  href="{{ route('styles.edit',$style->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
+                                    <button onclick="deleteTableRow()" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

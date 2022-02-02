@@ -2,10 +2,9 @@
     @extends('layout.default')
 
 @section('content')
-    <div class="col-sm-6">
-        <br>
-
-        <form class="fill-form" method="POST" action="{{ url('select_from_lists', $select_from_list) }}">
+<div class="edit row">
+    <div class="col-12">
+         <form class="fill-form" method="POST" action="{{ url('select_from_lists', $select_from_list) }}">
             @method('PATCH')
             @csrf
             <div class="row g-3 align-items-center">
@@ -40,8 +39,16 @@
                     <label for="inputPassword4" class="col-form-label">Language</label>
                 </div>
                 <div class="col-8">
-                    <input type="text" name="language_id" id="inputPassword4" class="form-control"
-                           aria-describedby="passwordHelpInline" value="{{ $select_from_list->language->name }}">
+                    <select class="form-select">
+                    @foreach($select_from_list as $select)
+                        <option value="1">Русский</option>
+                        <option value="2">Arabic</option>
+                        <option value="3">Uzbek</option>
+                        <option value="4" selected>English</option>
+                    @endforeach
+                    </select>
+                    <!-- <input type="text" name="language_id" id="inputPassword4" class="form-control"
+                           aria-describedby="passwordHelpInline" value="{{ $select_from_list->language->name }}"> -->
                 </div>
             </div>
             <div class="row g-3">
@@ -49,5 +56,8 @@
             </div>
 
         </form>
+    </div>
+</div>
+       
 @stop
 @endif
