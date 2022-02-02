@@ -29,6 +29,7 @@ class AuthController extends Controller
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+
         return $this->respondWithToken($token);
     }
 
@@ -65,6 +66,7 @@ class AuthController extends Controller
             'email' => 'required|string|email|unique:users,email',
             'password' => 'required|string|confirmed|min:6',
         ]);
+
         try {
         User::create([
             'name' => $request->name,

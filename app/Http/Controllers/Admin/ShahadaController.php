@@ -10,53 +10,51 @@ class ShahadaController extends Controller
 {
     public function index()
     {
-        return Shahada::with('iso_cod')->get();
+        return view('content.shahadas.index', ['shahadas' => Shahada::with('language')->get()]);
     }
 
-    public function store(Request $request)
+    public function create()
+    {
+        return view('content.shahadas.create');
+    }
+
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
-            'text' => 'required',
-            'iso_code' => 'required|exists:languages,iso_code',
+            'text' => 'required|min:3|max:1000',
+            'language_id' => 'required|exists:languages,id',
         ]);
-        $shahada = Shahada::create([
-            'text' => $request->text,
-            'iso_code' => $request->iso_code,
-        ]);
-        return $shahada;
+
+        Shahada::add($request->validated());
+
+        return redirect()->route('shahadas.index')
+            ->with('Success', 'Shahada created successfully');
     }
 
-    public function show(Shahada $shahada)
+    public function edit(Shahada $shahada)
     {
-        return $shahada;
+        return view('content.shahadas.edit', compact('shahada'));
     }
 
-    public function update(Request $request, Shahada $shahada)
+    public function update(Request $request, Shahada $shahada): \Illuminate\Http\RedirectResponse
     {
-        $request->validate([
-            'iso_code' => 'exists:languages,iso_code',
+        $validated = $request->validate([
+            'language_id' => 'exists:languages,id',
+            'text' => 'min:3|max:1000'
         ]);
-        if ($request->has('text')) {
-            $shahada->text = $request->text;
-        }
-        if ($request->has('iso_code')) {
-            $shahada->iso_code = $request->iso_code;
-        }
-        $shahada->save();
-        return $shahada;
+
+        $shahada->update($validated);
+
+        return redirect()->route('shahadas.index')
+            ->with('Success', 'Shahada updated successfully');
 
     }
 
-    public function destroy(Shahada $shahada)
+    public function destroy(Shahada $shahada): \Illuminate\Http\RedirectResponse
     {
-        try {
-            $shahada->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'code' => Controller::CODE_DB_TRANSACTION,
-                'message' => $e->getMessage(),
-            ], 400);
-        }
-        return $shahada->id;
+        $shahada->delete();
+
+        return redirect()->route('shahadas.index')
+            ->with('Success', 'Shahada deleted successfully');
     }
 }

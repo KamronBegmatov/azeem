@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSuraReciterRequest;
 use App\Http\Resources\Admin\SuraReciterResource;
 use App\Models\SuraReciter;
 use Illuminate\Http\Request;
@@ -13,28 +14,19 @@ class SuraReciterController extends Controller
 
     public function index(Request $request)
     {
-        $sura_reciters = SuraReciter::with(['reciter', 'sura']);
-        $pages = 10;
-        if ($request->has('per_page')) {
-            $pages = $request->per_page;
-        }
-        return SuraReciterResource::collection($sura_reciters->paginate($pages));
+        $pages = $request->has('per_page') ? $request->per_page : 10;
+
+        return SuraReciterResource::collection(SuraReciter::with(['reciter', 'sura'])->paginate($pages));
     }
 
-    public function store(Request $request)
+    public function store(StoreSuraReciterRequest $request)
     {
-        $request->validate([
-            'reciter_id' => 'required|exists:reciters,id',
-            'sura_id' => 'required|exists:suras,sura',
-            'audio' => 'required|file',
-        ]);
         Storage::disk('public')->putFileAs('audios/' . $request->reciter_id . '/', $request->file('audio'), $request->sura_id . '.mp3');
-        $sura_reciter = SuraReciter::create([
-            'reciter_id' => $request->reciter_id,
-            'sura_id' => $request->sura_id,
-            'audio' => 'audios/' . $request->reciter_id . '/' . $request->sura_id . '.mp3',
-        ]);
-        return new SuraReciterResource($sura_reciter);
+
+        SuraReciter::add($request);
+
+        return redirect()->route('sura_reciter.index')
+            ->with('Success', 'Languages created successfully');
     }
 
     public function show(SuraReciter $sura_reciter)
@@ -49,6 +41,7 @@ class SuraReciterController extends Controller
             'sura_id' => 'exists:suras,sura',
             'audio' => 'file',
         ]);
+
         if ($request->has('audio')) {
             Storage::disk('public')->putFileAs('audios/' . $request->reciter_id . '/', $request->file('audio'), $request->sura_id . '.mp3');
         }
@@ -58,9 +51,10 @@ class SuraReciterController extends Controller
         if ($request->has('sura_id')) {
             $sura_reciter->sura_id = $request->sura_id;
         }
-        $sura_reciter->save();
-        return new SuraReciterResource($sura_reciter);
 
+        $sura_reciter->save();
+
+        return new SuraReciterResource($sura_reciter);
     }
 
     public function destroy(SuraReciter $sura_reciter)

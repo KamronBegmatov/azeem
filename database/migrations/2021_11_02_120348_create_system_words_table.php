@@ -17,7 +17,8 @@ class CreateSystemWordsTable extends Migration
             $table->id();
             $table->string('title', 15);
             $table->string('text', 15);
-            $table->string('iso_code', 5);
+            $table->foreignId('language_id')->constrained('languages');
+            $table->unique(array('title', 'language_id'));
             $table->timestamps();
         });
     }

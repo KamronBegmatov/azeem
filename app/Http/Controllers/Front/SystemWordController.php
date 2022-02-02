@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class SystemWordController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        $system_words = SystemWord::where('iso_code', $request->lang);
-        return SystemWordResource::collection($system_words->get());
+        return SystemWordResource::collection(
+            SystemWord::where('language_id', $request->language_id)
+                ->get());
     }
-
 }

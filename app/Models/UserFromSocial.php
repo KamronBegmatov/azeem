@@ -33,6 +33,10 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  * @method static \Illuminate\Database\Eloquent\Builder|UserFromSocial wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserFromSocial whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserFromSocial whereUpdatedAt($value)
+ * @property string|null $facebook_id
+ * @property int|null $twitter_id
+ * @method static \Illuminate\Database\Eloquent\Builder|UserFromSocial whereFacebookId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserFromSocial whereTwitterId($value)
  */
 class UserFromSocial extends Authenticatable implements JWTSubject
 {
