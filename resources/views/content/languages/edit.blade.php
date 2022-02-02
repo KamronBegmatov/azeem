@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $language->id }}">
+                        aria-describedby="passwordHelpInline" value="{{ $language->id }}" disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">

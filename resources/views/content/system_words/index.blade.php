@@ -25,7 +25,7 @@
                                 <td>{{$system_word->id}}</td>
                                 <td>{{$system_word->title}}</td>
                                 <td>{{$system_word->text}}</td>
-                                <td>{{$system_word->iso_code}}</td>
+                                <td>{{$system_word->language->name}}</td>
                                 <td>
                                     <a  href="{{ route('system_words.edit',$system_word->id) }}" class="btn btn-info  editInfo"><i class="fa fa-pen"></i></a>
                                     <button onclick="deleteTableRow()" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>

@@ -38,14 +38,11 @@
                     <label for="inputPassword4" class="col-form-label">Language</label>
                 </div>
                 <div class="col-8">
-                    <!-- <input type="text" name="language" id="inputPassword4" class="form-control"
-                        aria-describedby="passwordHelpInline"> -->
-                        <select class="form-select">
-                            <option value="1">Русский</option>
-                            <option value="2">Arabic</option>
-                            <option value="3">Uzbek</option>
-                            <option value="4" selected>English</option>
-                        </select>
+                    <select class="form-select" name="language_id">
+                        @foreach($languages as $language)
+                            <option value="{{$language->id}}">{{$language->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="row g-3">

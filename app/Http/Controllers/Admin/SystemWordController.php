@@ -41,7 +41,7 @@ class SystemWordController extends Controller
             'language_id' => 'exists:languages,id',
         ]);
 
-        $system_word->update($request->all);
+        $system_word->update($request->all());
 
         return redirect()->route('system_words.index')
             ->with('Success','System word updated successfully');
