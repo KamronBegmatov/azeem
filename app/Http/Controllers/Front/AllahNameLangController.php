@@ -9,15 +9,13 @@ use Illuminate\Http\Request;
 
 class AllahNameLangController extends Controller
 {
-
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        $allahNameLangs = AllahNameLang::where('iso_code', $request->lang)->with('allah_name');
-        return AllahNameLangResource::collection($allahNameLangs->get());
+        return AllahNameLangResource::collection(AllahNameLang::where('language_id', $request->language_id)->with(['allah_name', 'language'])->get());
     }
 
-    public function show(AllahNameLang $allahNameLang)
+    public function show(AllahNameLang $allah_name_lang): AllahNameLangResource
     {
-        return new AllahNameLangResource($allahNameLang);
+        return new AllahNameLangResource($allah_name_lang);
     }
 }

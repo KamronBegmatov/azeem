@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -32,3 +33,4 @@
         </div>
     </div>
 @stop
+@endif

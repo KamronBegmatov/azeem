@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -12,9 +13,9 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Allah name ID</th>
-                            <th>Name</th>
-                            <th>Iso-code</th>
+                            <th>Allah name</th>
+                            <th>Translated name</th>
+                            <th>Language</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -22,9 +23,9 @@
                         @foreach($allah_name_langs as $allah_name_lang)
                             <tr>
                                 <td>{{$allah_name_lang->id}}</td>
-                                <td>{{$allah_name_lang->allah_name_id}}</td>
+                                <td>{{$allah_name_lang->allahName->name}}</td>
                                 <td>{{$allah_name_lang->name}}</td>
-                                <td>{{$allah_name_lang->iso_code}}</td>
+                                <td>{{$allah_name_lang->language->name}}</td>
                                 <td>
                                     <a  href="{{ route('allah_name_langs.edit',$allah_name_lang->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
                                     <button onclick="deleteTableRow()" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>
@@ -39,3 +40,4 @@
         </div>
     </div>
 @stop
+@endif

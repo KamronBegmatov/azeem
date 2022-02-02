@@ -21,9 +21,9 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{route('allah_names_langs.index')}}" class=" nav-link {{request()->is('allahNamesTrans') ? 'active' : '' }}">
+                     <a href="{{route('allah_name_langs.index')}}" class=" nav-link {{request()->is('allahNameLangs') ? 'active' : '' }}">
                          <i class="fas fa-sort-alpha-up nav-icon"></i>
-                         <p>Allah names Translations</p>
+                         <p>Allah names translations</p>
                      </a>
                  </li>
                  <li class="nav-item">

@@ -20,7 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|AllahName whereUpdatedAt($value)
  * @mixin \Eloquent
  */
+
 class AllahName extends Model
 {
-    protected $guarded=[];
+    protected $fillable = ['name'];
 }

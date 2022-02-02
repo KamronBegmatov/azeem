@@ -11,44 +11,46 @@ class AllahNameController extends Controller
 
     public function index()
     {
-        return AllahName::get();
+        return view('content.allah_names.index', ['allah_names' => AllahName::all()]);
     }
 
-    public function store(Request $request)
+    public function create()
+    {
+        return view('content.allah_names.create');
+    }
+
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|unique:allah_names,name',
         ]);
-        $allahName = AllahName::create([
+
+        AllahName::create([
             'name' => $request->name,
         ]);
-        return $allahName;
+
+        return redirect()->route('allah_names.index')
+            ->with('Success', 'Allah name created successfully');
     }
 
-    public function show(AllahName $allahName)
+    public function edit(AllahName $allah_name)
     {
-        return $allahName;
+        return view('content.allah_names.edit', ['allah_name' => $allah_name]);
     }
 
-    public function update(Request $request, AllahName $allahName)
+    public function update(Request $request, AllahName $allah_name): \Illuminate\Http\RedirectResponse
     {
-        if ($request->has('name')) {
-            $allahName->name = $request->name;
-        }
-        $allahName->save();
-        return $allahName;
+        $allah_name->update(['name' => $request->name]);
+
+        return redirect()->route('allah_names.index')
+            ->with('Success', 'Allah name updated successfully');
     }
 
-    public function destroy(AllahName $allahName)
+    public function destroy(AllahName $allah_name): \Illuminate\Http\RedirectResponse
     {
-        try {
-            $allahName->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'code' => Controller::CODE_DB_TRANSACTION,
-                'message' => $e->getMessage(),
-            ], 400);
-        }
-        return $allahName->id;
+        $allah_name->delete();
+
+        return redirect()->route('allah_names.index')
+            ->with('Success', 'Allah name deleted successfully');
     }
 }

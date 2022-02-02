@@ -6,14 +6,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class AllahNameLangResource extends JsonResource
 {
-
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'id' => $this->id,
             'allah_name' => $this->allah_name,
             'name' => $this->name,
-            'lang' => $this->iso_code,
+            'language' => $this->language,
         ];
     }
 }

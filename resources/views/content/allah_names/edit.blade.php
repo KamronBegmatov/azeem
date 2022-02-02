@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -12,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $allah_name->id }}">
+                        aria-describedby="passwordHelpInline" value="{{ $allah_name->id }}" disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -33,3 +34,4 @@
 </div>
 
 @stop
+@endif

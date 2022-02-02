@@ -17,8 +17,8 @@ class CreateAllahNameLangsTable extends Migration
             $table->id();
             $table->foreignId('allah_name_id')->constrained('allah_names');
             $table->string('name');
-            $table->string('iso_code');
-            $table->unique(array('allah_name_id', 'iso_code'));
+            $table->foreignId('language_id')->constrained('languages');
+            $table->unique(array('allah_name_id', 'language_id'));
             $table->timestamps();
         });
     }

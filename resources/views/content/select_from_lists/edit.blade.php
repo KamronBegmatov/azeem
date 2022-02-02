@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-8">
                         <select class="form-select" name="language_id">
-                            <option selected>{{$select_from_list->language->name}}</option>
+                            <option selected value="{{$select_from_list->language->id}}">{{$select_from_list->language->name}}</option>
                             @foreach($languages as $language)
                                 @if(!($language->id == $select_from_list->language->id))
                                     <option value="{{$language->id}}">{{$language->name}}</option>
