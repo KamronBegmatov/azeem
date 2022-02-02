@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="row m-2">
+        <br>
+        <br>
         <div class="col-12">
             <div class="card">
                 <div class="col-sm-6">

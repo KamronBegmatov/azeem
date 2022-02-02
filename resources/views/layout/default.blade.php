@@ -24,6 +24,9 @@
         </div>
     </div>
     @include('layout.script')
+    <script>
+         
+    </script>
 </body>
 
 </html>

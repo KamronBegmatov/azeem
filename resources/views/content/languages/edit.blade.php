@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="row g-3">
-                <button name="delete" type="submit" class="btn submit btn-primary">Delete</button>
+                <button type="submit" class="btn submit btn-primary">Save</button>
             </div>
 
         </form>
