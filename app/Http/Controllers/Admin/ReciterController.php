@@ -24,12 +24,12 @@ class ReciterController extends Controller
         Reciter::add($request);
 
         return redirect()->route('reciters.index')
-            ->with('Success','Reciter created successfully');
+            ->with('Success', 'Reciter created successfully');
     }
 
     public function edit(Reciter $reciter)
     {
-        return view('content.reciters.edit',compact('reciter'));
+        return view('content.reciters.edit', compact('reciter'));
     }
 
     public function update(Request $request, Reciter $reciter): \Illuminate\Http\RedirectResponse
@@ -40,20 +40,15 @@ class ReciterController extends Controller
 
         $reciter->edit($request);
 
-        return redirect()->route('languages.index')
-            ->with('Success','Language updated successfully');
+        return redirect()->route('reciters.index')
+            ->with('Success', 'Reciter updated successfully');
     }
 
-    public function destroy(Reciter $reciter)
+    public function destroy(Reciter $reciter): \Illuminate\Http\RedirectResponse
     {
-        try {
-            $reciter->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => $e->getMessage(),
-            ], 400);
-        }
-        return  redirect()->route('reciters.index')
+        $reciter->delete();
+
+        return redirect()->route('reciters.index')
             ->with('Success', 'Reciter deleted successfully');
     }
 }

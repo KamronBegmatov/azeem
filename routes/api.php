@@ -46,3 +46,5 @@ Route::get('select_from_lists',           'Front\SelectFromListController@index'
 Route::get('qazo',                        'Front\QazoController@show');                     // API for getting qazo of user
 Route::put('qazo',                        'Front\QazoController@update');                   // API for updating qazo of user
 Route::get('geo_code',                    'Front\GeoCodeController@getGeoCode');            // API for getting geocode
+Route::get('reciter_langs',               'Front\ReciterLangController@index');            // API for getting reciters with translations
+Route::get('reciter_langs/{reciter_lang}', 'Front\ReciterLangController@show');            // API for getting reciter with translation

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreReciterRequest extends FormRequest
+class UpdateReciterLangRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,11 @@ class StoreReciterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'image' => 'required|file'
+            'name' => 'string',
+            'info' => 'min:3|max:1000',
+            'style_id' => 'exists:styles,id',
+            'reciter_id' => 'exists:reciters,id',
+            'language_id' => 'exists:languages,id'
         ];
     }
 }

@@ -21,6 +21,7 @@ Route::post('login/attempt',             'Admin\LoginController@loginAttempt');
 
 Route::resource('languages',         'Admin\LanguageController');
 Route::resource('reciters',          'Admin\ReciterController');
+Route::resource('reciter_langs',     'Admin\ReciterLangController');
 Route::resource('sura_reciters',     'Admin\SuraReciterController');
 Route::resource('system_words',      'Admin\SystemWordController');
 Route::resource('allah_names',       'Admin\AllahNameController');
