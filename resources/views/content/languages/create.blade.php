@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>--}}
             <div class="row g-3 align-items-center">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="name" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="active" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="iso_code" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="language_code" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3">

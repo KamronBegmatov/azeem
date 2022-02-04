@@ -39,6 +39,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="{{route('reciter_langs.index')}}" class="nav-link">
+                         <i class="fas fa-book-reader nav-icon"></i>
+                         <p>Reciter Languages</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="{{route('system_words.index')}}" class="nav-link  {{request()->is('systemWords') ? 'active' : '' }}">
                          <i class="fas fa-list-ol nav-icon"></i>
                          <p>System words</p>

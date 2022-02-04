@@ -4,25 +4,23 @@
 @section('content')
 <div class="edit row">
     <div class="col-12">
-        <form class="fill-form" method="POST" action="{{ url('allah_names', $allah_name) }}">
+        <form class="fill-form" method="POST" action="{{ url('reciters', $reciter) }}">
             @method('PATCH')
             @csrf
             <div class="row g-3 align-items-center">
                 <div class="col-4">
-                    <label for="inputPassword1" class="col-form-label">ID</label>
+                    <label for="inputPassword1" class="col-form-label">Title</label>
                 </div>
                 <div class="col-8">
-                    <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $allah_name->id }}" disabled>
+                    <input type="text" name="title" id="inputPassword1" class="form-control" value="{{ $reciter->title }}" disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
                 <div class="col-4">
-                    <label for="inputPassword2" class="col-form-label">Name</label>
+                    <label for="inputPassword2" class="col-form-label">Image</label>
                 </div>
                 <div class="col-8">
-                    <input type="text" name="name" id="inputPassword2" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $allah_name->name }}">
+                    <input type="file" name="image" id="inputPassword2" class="form-control" value="{{ $reciter->image }}">
                 </div>
             </div>
             <div class="row g-3">

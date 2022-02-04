@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $style->id }}" disabled>
+                          value="{{ $style->id }}" disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="name" id="inputPassword2" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $style->name }}">
+                          value="{{ $style->name }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">

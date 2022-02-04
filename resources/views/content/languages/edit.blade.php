@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $language->id }}" disabled>
+                          value="{{ $language->id }}" disabled>
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="name" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $language->name }}">
+                          value="{{ $language->name }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="active" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $language->active }}">
+                          value="{{ $language->active }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="iso_code" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $language->iso_code }}">
+                          value="{{ $language->iso_code }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="language-code" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $language->language_code }}">
+                          value="{{ $language->language_code }}">
                 </div>
             </div>
             <div class="row g-3">
