@@ -103,6 +103,22 @@ body {
   float: right;
   margin: 3% 0 1% auto;
 }
+.dashboard .my-pagination {
+  display: flex;
+  justify-content: center;
+}
+.dashboard .main-pagination {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  align-items: center;
+}
+.dashboard .main-pagination svg {
+  width: 20px;
+}
+.dashboard .text-results, .dashboard .first-pagination {
+  display: none;
+}
 
 .layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]) {
   background-color: white !important;
