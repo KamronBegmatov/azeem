@@ -70,6 +70,22 @@ body {
             }
         }
     }
+    .my-pagination{
+        display: flex;
+        justify-content: center;
+    }
+    .main-pagination{
+            display: flex;
+            justify-content: space-between;
+            width:auto;
+            align-items: center;
+            svg{
+                width:20px;
+            }
+    }
+    .text-results, .first-pagination{
+        display:none;
+    }
 }
 .layout-navbar-fixed
     .wrapper

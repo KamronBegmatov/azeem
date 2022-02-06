@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>--}}
             <div class="row g-3 align-items-center">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="sura" id="inputPassword2" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="aya" id="inputPassword3" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="text" id="inputPassword4" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="iso_code" id="inputPassword5" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="name" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="location" id="inputPassword7" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3">

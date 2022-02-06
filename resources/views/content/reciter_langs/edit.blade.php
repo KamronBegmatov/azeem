@@ -4,53 +4,59 @@
 @section('content')
     <div class="edit row">
         <div class="col-12">
-            <form class="fill-form" method="POST" action="{{ url('allah_name_langs', $allah_name_lang) }}">
+            <form class="fill-form" method="POST" action="{{ url('reciter_langs', $reciter_lang) }}">
                 @method('PATCH')
                 @csrf
                 <div class="row g-3 align-items-center">
                     <div class="col-4">
-                        <label for="inputPassword1" class="col-form-label">ID</label>
+                        <label for="inputPassword1" class="col-form-label">Name</label>
                     </div>
                     <div class="col-8">
-                        <input type="number" name="id" id="inputPassword1" class="form-control"
-                               aria-describedby="passwordHelpInline" value="{{ $allah_name_lang->id }}" disabled>
+                        <input type="text" name="name" id="inputPassword1" class="form-control"
+                                 value="{{ $reciter_lang->name }}" disabled>
                     </div>
                 </div>
                 <div class="row g-3 align-items-center">
                     <div class="col-4">
-                        <label for="inputPassword2" class="col-form-label">Allah name</label>
+                        <label for="inputPassword2" class="col-form-label">Info</label>
                     </div>
                     <div class="col-8">
-                        <select class="form-select" name="allah_name_id">
-                            <option selected value="{{$allah_name_lang->allah_name_id}}">{{$allah_name_lang->allahName->name}}</option>
-                            @foreach($allah_names as $allah_name)
-                                @if(!($allah_name->id == $allah_name_lang->allahName->id))
-                                    <option value="{{$allah_name->id}}">{{$allah_name->name}}</option>
-                                @endif
+                        <input type="text" name="info" id="inputPassword2" class="form-control"
+                                 value="{{ $reciter_lang->info }}" disabled>
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center">
+                    <div class="col-4">
+                        <label for="inputPassword3" class="col-form-label">Reciter_id</label>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-select" name="reciters_id" id="inputPassword3">
+                            @foreach($reciter_langs as $reciter_lang)
+                                <option value="{{$reciter_lang->reciter_id}}">{{$reciter_lang->reciter_id}}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="row g-3 align-items-center">
                     <div class="col-4">
-                        <label for="inputPassword3" class="col-form-label">Name</label>
+                        <label for="inputPassword4" class="col-form-label">Style_id</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="name" id="inputPassword3" class="form-control"
-                               aria-describedby="passwordHelpInline" value="{{ $allah_name_lang->name }}">
+                        <select class="form-select" name="style_id" id="inputPassword4">
+                            @foreach($reciter_langs as $reciter_lang)
+                                <option value="{{$language->id}}">{{$reciter_lang->style_id}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row g-3 align-items-center">
                     <div class="col-4">
-                        <label for="inputPassword4" class="col-form-label">Language</label>
+                        <label for="inputPassword5" class="col-form-label">Language_id</label>
                     </div>
                     <div class="col-8">
-                        <select class="form-select" name="language_id">
-                            <option selected>{{$allah_name_lang->language->name}}</option>
-                            @foreach($languages as $language)
-                                @if(!($language->id == $allah_name_lang->language->id))
-                                    <option value="{{$language->id}}">{{$language->name}}</option>
-                                @endif
+                        <select class="form-select" name="language_id" id="inputPassword5">
+                            @foreach($reciter_langs as $reciter_lang)
+                                <option value="{{$reciter_lang->language_id}}">{{$reciter_lang->language_id}}</option>
                             @endforeach
                         </select>
                     </div>

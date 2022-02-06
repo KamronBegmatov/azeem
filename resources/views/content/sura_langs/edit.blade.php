@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->id }}">
+                          value="{{ $sura_lang->id }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="sura" id="inputPassword2" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->sura }}">
+                          value="{{ $sura_lang->sura }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="aya" id="inputPassword3" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->aya }}">
+                          value="{{ $sura_lang->aya }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="text" id="inputPassword4" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->text }}">
+                          value="{{ $sura_lang->text }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="iso_code" id="inputPassword5" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->iso_code }}">
+                          value="{{ $sura_lang->iso_code }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="name" id="inputPassword6" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->name }}">
+                          value="{{ $sura_lang->name }}">
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="location" id="inputPassword7" class="form-control"
-                        aria-describedby="passwordHelpInline" value="{{ $sura_lang->location }}">
+                          value="{{ $sura_lang->location }}">
                 </div>
             </div>
             <div class="row g-3">

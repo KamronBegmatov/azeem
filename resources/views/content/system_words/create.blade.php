@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-8">
                     <input type="number" name="id" id="inputPassword1" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>--}}
             <div class="row g-3 align-items-center">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="title" id="inputPassword2" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-8">
                     <input type="text" name="text" id="inputPassword3" class="form-control"
-                        aria-describedby="passwordHelpInline">
+                         >
                 </div>
             </div>
             <div class="row g-3 align-items-center">
