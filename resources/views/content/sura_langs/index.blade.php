@@ -1,3 +1,4 @@
+@if(session('token'))
 @extends('layout.default')
 
 @section('content')
@@ -32,7 +33,7 @@
                                 <td>{{$sura_lang->name}}</td>
                                 <td>{{$sura_lang->location}}</td>
                                 <td>
-                                    <a  href="{{ route('sura_langs.edit',$sura_lang->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>     
+                                    <a  href="{{ route('sura_langs.edit',$sura_lang->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
                                     <button onclick="deleteTableRow()" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
@@ -45,3 +46,4 @@
         </div>
     </div>
 @stop
+@endif

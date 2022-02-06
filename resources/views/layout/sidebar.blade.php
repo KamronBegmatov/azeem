@@ -69,6 +69,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="{{route('sura_reciters.index')}}" class="nav-link  {{request()->is('sura_reciters') ? 'active' : '' }}">
+                         <i class="nav-icon fa fa-language"></i>
+                         <p>Sura-reciters</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="#" class="nav-link ">
                          <i class="nav-icon fa fa-language"></i>
                          <p>

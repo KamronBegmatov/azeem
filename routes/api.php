@@ -39,12 +39,14 @@ Route::get('pray_times_by_date',          'Front\PrayerTimeController@show');   
 Route::get('pray_times_by_city_month',    'Front\PrayerTimeByCityController@index');        // API for 1-2 page
 Route::get('pray_times_by_city_date',     'Front\PrayerTimeByCityController@show');         // API for 1-2 page
 Route::get('allah_names_langs',           'Front\AllahNameLangController@index');           // API for 18 page
-Route::get('online_tv',                   'Front\OnlineTvController@index');                // API for 16-17 page
-Route::get('shahada',                     'Front\ShahadaController@index');                 // API for 19 page
-Route::post('feedback',                   'Front\FeedbackController@send');                 // API for 22 page
-Route::get('select_from_lists',           'Front\SelectFromListController@index');          // API for 22 page
+Route::get('online_tv',                   'Front\OnlineTvController@index');                // API for online tv of Madina & Mekka
+Route::get('shahada',                     'Front\ShahadaController@index');                 // API for shahada
+Route::post('feedback',                   'Front\FeedbackController@send');                 // API for feedback
+Route::get('select_from_lists',           'Front\SelectFromListController@index');          // API for madhab
 Route::get('qazo',                        'Front\QazoController@show');                     // API for getting qazo of user
 Route::put('qazo',                        'Front\QazoController@update');                   // API for updating qazo of user
 Route::get('geo_code',                    'Front\GeoCodeController@getGeoCode');            // API for getting geocode
 Route::get('reciter_langs',               'Front\ReciterLangController@index');            // API for getting reciters with translations
-Route::get('reciter_langs/{reciter_lang}', 'Front\ReciterLangController@show');            // API for getting reciter with translation
+Route::get('reciter_langs/{reciter_lang}','Front\ReciterLangController@show');            // API for getting reciter with translation
+
+// sura_langs adminkada qilishkere, keyin qazo, juz

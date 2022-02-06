@@ -18,7 +18,7 @@ class CreateSuraLangsTable extends Migration
             $table->integer('sura');
             $table->integer('aya');
             $table->text('text');
-            $table->string('iso_code', 5);
+            $table->foreignId('language_id')->constrained('languages');
             $table->string('name', 20)->nullable();
             $table->string('location', 10)->nullable();
             $table->timestamps();

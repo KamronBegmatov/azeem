@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',                          'Admin\LoginController@index');
-Route::get('login',                      'Admin\LoginController@login');
-Route::get('logout',                     'Admin\LoginController@logout');
-Route::get('dashboard',                  'Admin\LoginController@dashboard')->name('dashboard');
-Route::post('login/attempt',             'Admin\LoginController@loginAttempt');
+Route::get('/',                        'Admin\LoginController@index');
+Route::get('login',                    'Admin\LoginController@login');
+Route::get('logout',                   'Admin\LoginController@logout');
+Route::get('dashboard',                'Admin\LoginController@dashboard')->name('dashboard');
+Route::post('login/attempt',           'Admin\LoginController@loginAttempt');
 
 Route::resource('languages',         'Admin\LanguageController');
 Route::resource('reciters',          'Admin\ReciterController');
