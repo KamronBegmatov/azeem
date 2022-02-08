@@ -13,7 +13,7 @@ class SuraReciterResource extends JsonResource
             'id' => $this->id,
             'reciter' => $this->reciter,
             'sura' => $this->sura,
-            'audio' => url('').'/storage/'.$this->audio,
+            'audio' => url('') . '/storage/' . $this->audio,
         ];
     }
 }

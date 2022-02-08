@@ -29,4 +29,14 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     protected $guarded=[];
+
+    public static function add($request)
+    {
+        return self::create([
+            'name' => $request->name,
+            'active' => $request->active,
+            'iso_code' => $request->iso_code,
+            'language_code' => $request->language_code,
+        ]);
+    }
 }

@@ -1,0 +1,176 @@
+.authorization {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/img/ramadan2.jpg");
+}
+.authorization .bg {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.authorization .bg form {
+  background: white;
+  height: auto;
+  width: 400px;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 1px 0px 15px 2px rgba(0, 0, 0, 0.2);
+}
+.authorization .bg form h6 {
+  color: #D58C07;
+  font-size: 30px;
+  margin: 0;
+}
+.authorization .bg form p {
+  font-size: 14px;
+  color: #cecece;
+}
+.authorization .bg form button.submit {
+  background-color: #D4936D;
+  color: white;
+}
+.authorization .bg form label {
+  font-size: 14px;
+}
+
+@font-face {
+  font-family: "SourceSansPro-bold";
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url(/fonts/SourceSansPro-Bold.ttf?18576555c63acf01da1e674688885668) format("truetype");
+}
+@font-face {
+  font-family: "SourceSansPro-light";
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url(/fonts/SourceSansPro-Light.ttf?fd3ce6c4ed2f75277f683b6445f90d9b) format("truetype");
+}
+@font-face {
+  font-family: "SourceSansPro-regular";
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url(/fonts/SourceSansPro-Regular.ttf?ed3e1a0f0cbd41e2d920cd84ec1fc93c) format("truetype");
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "SourceSansPro-regular";
+}
+
+.dashboard .brand-link span {
+  color: black;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.dashboard .card {
+  margin-top: 2%;
+}
+.dashboard .card-body {
+  height: 70vh;
+}
+.dashboard .card-body .create-info {
+  font-size: 16px;
+  margin: 5px 15px 15px 0;
+  color: black;
+  font-family: "SourceSansPro-bold";
+  float: right;
+}
+.dashboard .content-wrapper .edit .fill-form, .dashboard .content-wrapper .create .fill-form {
+  margin-top: 2%;
+  width: 60%;
+  margin-left: 2%;
+  padding: 1% 2%;
+  background: white;
+  border: 2px solid #eeee;
+  border-radius: 8px;
+}
+.dashboard .content-wrapper .edit .fill-form .form-control, .dashboard .content-wrapper .create .fill-form .form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eeee;
+  border-radius: 0;
+}
+.dashboard .content-wrapper .edit .fill-form button.submit, .dashboard .content-wrapper .create .fill-form button.submit {
+  display: block;
+  float: right;
+  margin: 3% 0 1% auto;
+}
+.dashboard .my-pagination {
+  display: flex;
+  justify-content: center;
+}
+.dashboard .main-pagination {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  align-items: center;
+}
+.dashboard .main-pagination svg {
+  width: 20px;
+}
+.dashboard .text-results, .dashboard .first-pagination {
+  display: none;
+}
+
+.layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]) {
+  background-color: white !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #eeee;
+  color: black;
+}
+
+table th {
+  box-shadow: 0;
+}
+
+.table.table-head-fixed thead tr:nth-child(1) th {
+  box-shadow: none;
+}
+
+.home-outter {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: #723e32;
+  background: linear-gradient(180deg, #723e32 0%, #d38412 34%, #f5b533 84%, #ffce4f 100%);
+}
+.home-outter .navbaar {
+  height: 50px;
+  display: flex;
+  padding: 15px 25px;
+  justify-content: flex-end;
+}
+.home-outter .navbaar a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #333b40;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 2px solid #333b40;
+}
+.home-outter .navbaar a:hover {
+  opacity: 0.6;
+}
+.home-outter .content {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-outter .content h4 {
+  font-size: 45px;
+  color: #000;
+}

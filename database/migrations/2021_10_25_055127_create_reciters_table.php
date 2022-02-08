@@ -15,9 +15,7 @@ class CreateRecitersTable extends Migration
     {
         Schema::create('reciters', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('info');
-            $table->string('style', 20);
+            $table->string('title', 50);
             $table->string('image', 30);
             $table->timestamps();
         });
@@ -33,3 +31,4 @@ class CreateRecitersTable extends Migration
         Schema::dropIfExists('reciters');
     }
 }
+

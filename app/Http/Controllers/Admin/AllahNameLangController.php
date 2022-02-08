@@ -3,69 +3,65 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Admin\AllahNameLangResource;
+use App\Models\AllahName;
 use App\Models\AllahNameLang;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
 class AllahNameLangController extends Controller
 {
-
-    public function index(Request $request)
+    public function index()
     {
-        $allahNameLangs = AllahNameLang::where('iso_code', $request->lang)->with('allah_name');
-        return AllahNameLangResource::collection($allahNameLangs->get());
+        return view('content.allah_name_langs.index', ['allah_name_langs' => AllahNameLang::with(['allahName', 'language'])->get()]);
     }
 
-    public function store(Request $request)
+    public function create()
+    {
+        return view('content.allah_name_langs.create', ['allah_names' => AllahName::all(), 'languages' => Language::all()]);
+    }
+
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'allah_name_id' => 'required|exists:allah_names,id',
             'name' => 'required',
-            'iso_code' => 'required|exists:languages,iso_code',
+            'language_id' => 'required|exists:languages,id',
         ]);
-        $allahNameLang = AllahNameLang::create([
+
+        AllahNameLang::create([
             'allah_name_id' => $request->allah_name_id,
             'name' => $request->name,
-            'iso_code' => $request->iso_code,
+            'language_id' => $request->language_id,
         ]);
-        return new AllahNameLangResource($allahNameLang);
+
+        return redirect()->route('allah_name_langs.index')
+            ->with('Success', 'Allah name translated created successfully');
     }
 
-    public function show(AllahNameLang $allahNameLang)
+    public function edit(AllahNameLang $allah_name_lang)
     {
-        return new AllahNameLangResource($allahNameLang);
+        return view('content.allah_name_langs.edit', ['allah_name_lang' => $allah_name_lang, 'allah_names' => AllahName::all(), 'languages' => Language::all()]);
     }
 
-    public function update(Request $request, AllahNameLang $allahNameLang)
+    public function update(Request $request, AllahNameLang $allah_name_lang)
     {
         $request->validate([
             'allah_name_id' => 'exists:allah_names,id',
-            'iso_code' => 'exists:languages,iso_code',
+            'language_id' => 'exists:languages,id',
+            'name' => 'string'
         ]);
-        if ($request->has('allah_name_id')) {
-            $allahNameLang->allah_name_id = $request->allah_name_id;
-        }
-        if ($request->has('name')) {
-            $allahNameLang->name = $request->name;
-        }
-        if ($request->has('iso_code')) {
-            $allahNameLang->iso_code = $request->iso_code;
-        }
-        $allahNameLang->save();
-        return new AllahNameLangResource($allahNameLang);
 
+        $allah_name_lang->update($request->all());
+
+        return redirect()->route('allah_name_langs.index')
+            ->with('Success', 'Allah name translated updated successfully');
     }
 
-    public function destroy(AllahNameLang $allahNameLang)
+    public function destroy(AllahNameLang $allah_name_lang): \Illuminate\Http\RedirectResponse
     {
-        try {
-            $allahNameLang->delete();
-        } catch (\Exception $e) {
-            return response()->json([
-                'code' => Controller::CODE_DB_TRANSACTION,
-                'message' => $e->getMessage(),
-            ], 400);
-        }
-        return $allahNameLang->id;
+        $allah_name_lang->delete();
+
+        return redirect()->route('allah_name_langs.index')
+            ->with('Success', 'Allah name lang deleted successfully');
     }
 }
