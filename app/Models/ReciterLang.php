@@ -14,6 +14,22 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang query()
  * @mixin \Eloquent
+ * @property int $id
+ * @property string $name
+ * @property string $info
+ * @property int $reciter_id
+ * @property int $style_id
+ * @property int $language_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereInfo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereLanguageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereReciterId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereStyleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ReciterLang whereUpdatedAt($value)
  */
 class ReciterLang extends Model
 {

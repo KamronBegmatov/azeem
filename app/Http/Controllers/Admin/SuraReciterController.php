@@ -8,13 +8,19 @@ use App\Models\Reciter;
 use App\Models\Sura;
 use App\Models\SuraReciter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class SuraReciterController extends Controller
 {
     public function index()
     {
-        return view('content.sura_reciters.index', ['sura_reciters' => SuraReciter::with(['sura', 'reciter'])->get()]);
+        $sura_reciters = DB::table('sura_reciters')
+            ->join('suras', 'sura_reciters.sura', '=', 'suras.sura')
+            ->join('reciters', 'sura_reciters.reciter_id', '=', 'reciters.id')
+            ->get();
+
+        return view('content.sura_reciters.index', ['sura_reciters' => $sura_reciters]);
     }
 
     public function create()
@@ -41,7 +47,8 @@ class SuraReciterController extends Controller
     {
         $request->validate([
             'reciter_id' => 'exists:reciters,id',
-            'sura_id' => 'exists:suras,sura',
+            'sura' => 'exists:suras,sura',
+            'ayah' => 'exists:suras,ayah',
             'audio' => 'file',
         ]);
 
@@ -51,8 +58,11 @@ class SuraReciterController extends Controller
         if ($request->has('reciter_id')) {
             $sura_reciter->reciter_id = $request->reciter_id;
         }
-        if ($request->has('sura_id')) {
-            $sura_reciter->sura_id = $request->sura_id;
+        if ($request->has('sura')) {
+            $sura_reciter->sura = $request->sura;
+        }
+        if ($request->has('ayah')) {
+            $sura_reciter->ayah = $request->ayah;
         }
 
         $sura_reciter->save();

@@ -12,7 +12,7 @@ class SuraController extends Controller
 
     public function index(Request $request)
     {
-/*        $suras = Sura::with('sura_lang')->where('sura_lang.iso_code', $request->lang);
+/*        $suras = Sura::with('suraLang')->where('sura_lang.iso_code', $request->lang);
         $pages = 10;
         if ($request->has('per_page')) {
             $pages = $request->per_page;

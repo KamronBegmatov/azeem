@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int $sura
- * @property int $aya
+ * @property int $ayah
  * @property string $text
  * @property string|null $name
  * @property string|null $location
@@ -27,13 +27,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Sura whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sura whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \App\Models\SuraLang|null $sura_lang
+ * @property-read \App\Models\SuraLang|null $suraLang
+ * @method static \Illuminate\Database\Eloquent\Builder|Sura whereAyah($value)
  */
 
 class Sura extends Model
 {
+    protected $guarded=[];
 
-    public function sura_lang(){
+    public function suraLang(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
         return $this->hasOne(SuraLang::class, 'sura');
     }
 }

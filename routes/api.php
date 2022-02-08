@@ -49,4 +49,4 @@ Route::get('geo_code',                    'Front\GeoCodeController@getGeoCode');
 Route::get('reciter_langs',               'Front\ReciterLangController@index');            // API for getting reciters with translations
 Route::get('reciter_langs/{reciter_lang}','Front\ReciterLangController@show');            // API for getting reciter with translation
 
-// sura_langs adminkada qilishkere, keyin qazo, juz
+// reciter_sura da audio ayat ham qoshishkere, keyin qazo, juz, sura_langs adminkada qilishkere

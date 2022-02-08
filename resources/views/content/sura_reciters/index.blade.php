@@ -14,6 +14,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Sura</th>
+                            <th>Ayah</th>
                             <th>Reciter</th>
                             <th>Audio</th>
                         </tr>
@@ -22,6 +23,7 @@
                         @foreach($sura_reciters as $sura_reciter)
                             <tr>
                                 <td>{{$sura_reciter->id}}</td>
+{{--                                <td>{{$sura_reciter->sura->ayah}}</td>--}}
                                 <td>{{$sura_reciter->sura->sura}}</td>
                                 <td>{{$sura_reciter->reciter->title}}</td>
                                 <td>{{$sura_reciter->audio}}</td>

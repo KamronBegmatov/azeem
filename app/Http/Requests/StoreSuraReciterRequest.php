@@ -25,7 +25,8 @@ class StoreSuraReciterRequest extends FormRequest
     {
         return [
             'reciter_id' => 'required|exists:reciters,id',
-            'sura_id' => 'required|exists:suras,sura',
+            'sura' => 'required|exists:suras,sura',
+            'ayah' => 'required|exists:suras,ayah',
             'audio' => 'required|file'
         ];
     }

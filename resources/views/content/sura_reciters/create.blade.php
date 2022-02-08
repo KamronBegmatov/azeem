@@ -43,6 +43,19 @@
 
             <div class="row g-3 align-items-center">
                 <div class="col-4">
+                    <label for="inputPassword2" class="col-form-label">Sura</label>
+                </div>
+                <div class="col-8">
+                    <select class="form-select" name="sura_id">
+                        @foreach($suras as $sura)
+                            <option value="{{$sura->ayah}}">{{$sura->ayah}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center">
+                <div class="col-4">
                     <label for="audio" class="col-form-label">Audio</label>
                 </div>
                 <div class="col-8">
