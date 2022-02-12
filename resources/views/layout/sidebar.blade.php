@@ -51,12 +51,6 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{route('languages.index')}}" class="nav-link  {{request()->is('suraTrans') ? 'active' : '' }}">
-                         <i class="fas fa-list-ol nav-icon"></i>
-                         <p>Suras' translation</p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
                      <a href="{{route('languages.index')}}" class="nav-link  {{request()->is('languages') ? 'active' : '' }}">
                          <i class="nav-icon fa fa-language"></i>
                          <p>Languages</p>
@@ -80,85 +74,7 @@
                          <p>Sura-reciters</p>
                      </a>
                  </li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link ">
-                         <i class="nav-icon fa fa-language"></i>
-                         <p>
-                             Dropdown
-                             <i class="fas fa-angle-left right"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview nav-child-indent">
-                         <li class="nav-item">
-                             <a href="../mailbox/mailbox.html" class="nav-link">
-                                 <p>Uzbek</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="../mailbox/compose.html" class="nav-link">
-                                 <p>Russian</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="../mailbox/read-mail.html" class="nav-link">
-                                 <p>English</p>
-                             </a>
-                         </li>
                      </ul>
-                 </li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="nav-icon fas fa-circle"></i>
-                         <p>
-                             Multilevel
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview nav-child-indent">
-                         <li class="nav-item">
-                             <a href="#" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Level 2</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>
-                                     Level 2
-                                     <i class="right fas fa-angle-left"></i>
-                                 </p>
-                             </a>
-                             <ul class="nav nav-treeview nav-child-indent">
-                                 <li class="nav-item">
-                                     <a href="#" class="nav-link">
-                                         <i class="far fa-dot-circle nav-icon"></i>
-                                         <p>Level 3</p>
-                                     </a>
-                                 </li>
-                                 <li class="nav-item">
-                                     <a href="#" class="nav-link">
-                                         <i class="far fa-dot-circle nav-icon"></i>
-                                         <p>Level 3</p>
-                                     </a>
-                                 </li>
-                                 <li class="nav-item">
-                                     <a href="#" class="nav-link">
-                                         <i class="far fa-dot-circle nav-icon"></i>
-                                         <p>Level 3</p>
-                                     </a>
-                                 </li>
-                             </ul>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Level 2</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
-             </ul>
          </nav>
          <!-- /.sidebar-menu -->
      </div>

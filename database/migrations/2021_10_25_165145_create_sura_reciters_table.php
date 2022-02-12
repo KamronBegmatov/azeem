@@ -16,7 +16,8 @@ class CreateSuraRecitersTable extends Migration
         Schema::create('sura_reciters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reciter_id')->constrained('reciters');
-            $table->foreignId('sura_id')->constrained('suras');
+            $table->foreignId('sura')->constrained('suras', 'sura');
+            $table->integer('ayah')->nullable();
             $table->string('audio', 30);
             $table->timestamps();
         });
