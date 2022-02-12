@@ -39,4 +39,9 @@ class Sura extends Model
     {
         return $this->hasOne(SuraLang::class, 'sura');
     }
+
+    public static function checkIfExists($sura, $ayah)
+    {
+        if(!Sura::where('sura', $sura)->where('ayah', $ayah)->first()) throw new \Exception('This sura doesn\'t have this ayah!');
+    }
 }

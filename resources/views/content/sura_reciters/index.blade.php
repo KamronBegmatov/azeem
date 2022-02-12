@@ -23,12 +23,12 @@
                         @foreach($sura_reciters as $sura_reciter)
                             <tr>
                                 <td>{{$sura_reciter->id}}</td>
-{{--                                <td>{{$sura_reciter->sura->ayah}}</td>--}}
-                                <td>{{$sura_reciter->sura->sura}}</td>
+                                <td>{{$sura_reciter->sura}}</td>
+                                <td>{{$sura_reciter->ayah}}</td>
                                 <td>{{$sura_reciter->reciter->title}}</td>
                                 <td>{{$sura_reciter->audio}}</td>
                                 <td>
-                                    <a  href="{{ route('sura_reciters.edit',$sura_reciter->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
+                                    <a href="{{ route('sura_reciters.edit',$sura_reciter->id) }}" class="btn btn-info editInfo"><i class="fa fa-pen"></i></a>
                                     <button onclick="deleteTableRow()" class="btn btn-danger delete-btn"><i class="fas fa-trash"></i></button>
                                 </td>
                             </tr>

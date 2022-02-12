@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSuraReciterRequest extends FormRequest
+class UpdateSuraReciterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class StoreSuraReciterRequest extends FormRequest
     public function rules()
     {
         return [
-            'reciter_id' => 'required|exists:reciters,id',
-            'sura' => 'required|exists:suras,sura',
-            'ayah' => 'nullable|exists:suras,ayah',
-            'audio' => 'required|file'
+            'reciter_id' => 'exists:reciters,id',
+            'sura' => 'exists:suras,sura',
+            'ayah' => 'exists:suras,ayah',
+            'audio' => 'file',
         ];
     }
 }

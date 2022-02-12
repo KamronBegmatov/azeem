@@ -20,8 +20,7 @@
                         <label for="inputPassword2" class="col-form-label"> Text</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="text" id="inputPassword2" class="form-control"
-                                >
+                        <input type="text" name="text" id="inputPassword2" class="form-control">
                     </div>
                 </div>
                 <div class="row g-3 align-items-center">
